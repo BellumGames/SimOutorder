@@ -13,7 +13,9 @@ namespace Client
         private static readonly string REDIR = "Res";
 
         private string commnad;
+        [JsonProperty("max:inst")]
         private string max_int;
+        [JsonProperty("fast:fwd")]
         private string fast_fwd;
         private string ptrace;
 
@@ -67,6 +69,9 @@ namespace Client
         private string res_fpalu;
         private string res_fpmult;
 
+        [JsonProperty("lvpt:size")]
+        private string lvpt_size;
+
         private string pcstat;
 
         private string bugcompat;
@@ -75,6 +80,8 @@ namespace Client
         private string name;
         [JsonProperty("value")]
         private string value;
+
+
 
         public void GetPropertis()
         {
@@ -90,15 +97,22 @@ namespace Client
 
                 BuildSimCommand simCommand = JsonConvert.DeserializeObject<BuildSimCommand>(json_from_file);
                 Console.WriteLine(simCommand.name + " " + simCommand.value);
-            }catch(IOException ex)
+            } catch (IOException ex)
             {
                 Console.WriteLine(ex);
             }
 
-            commnad = $"{SIMULTOR} -redir:sim {REDIR} -max:inst {max_int}"+
-                $"-cache:dl1 {cache_dl1}:{}"
+
+            commnad = $"{SIMULTOR} -redir:sim {REDIR} -max:inst {max_int}" +
+                $"-fastfwd {fast_fwd} -max:inst {max_int} -lvpt:size {lvpt_size}" +
+                    $"benchmarks/applu.ss > benchmarks/applu.in";
 
 
+            json = JsonConvert.SerializeObject(commnad);
+            Console.WriteLine(json);
         }
     }
 }
+
+
+//./sim-outorder -redir:sim results/gcc_1024.res -fastfwd 1000000 -max:inst 10000000 -lvpt:size 1024 benchmarks/applu.ss > benchmarks/applu.in
