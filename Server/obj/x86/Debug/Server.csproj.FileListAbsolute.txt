@@ -1,0 +1,6 @@
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/bin/Debug/InterfataSimOutorder.exe
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/bin/Debug/InterfataSimOutorder.pdb
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/Server.csproj.AssemblyReference.cache
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/Server.csproj.CoreCompileInputs.cache
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/InterfataSimOutorder.exe
+/home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/InterfataSimOutorder.pdb
