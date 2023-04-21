@@ -13,8 +13,10 @@ Client:
 
 
 Cosmin:
-1) Incearca sa faci chestia cu JSON
-2) GIT repo
+1) Create JSON strategy and implemented for the Client APP | Done
+2) Create Repo for me					   | Done
+3) Create the launch for the commands			   | In Progress
+4) Parse the info from .res files an extract metrics	   | In progress
 
 
 Alex:
