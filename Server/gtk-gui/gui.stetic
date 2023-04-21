@@ -82,102 +82,6 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="lbPtraceName">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Trace Full Name:</property>
-          </widget>
-          <packing>
-            <property name="X">26</property>
-            <property name="Y">155</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Entry" id="entPraceName">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Text" translatable="yes">FOO.trc</property>
-            <property name="IsEditable">True</property>
-            <property name="InvisibleChar">•</property>
-          </widget>
-          <packing>
-            <property name="X">134</property>
-            <property name="Y">148</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="lbPtraceRange">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Trace Range:</property>
-          </widget>
-          <packing>
-            <property name="X">30</property>
-            <property name="Y">186</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Entry" id="entPtraceRange">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Text" translatable="yes">#0:#1000</property>
-            <property name="IsEditable">True</property>
-            <property name="InvisibleChar">•</property>
-          </widget>
-          <packing>
-            <property name="X">134</property>
-            <property name="Y">184</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="lbFetchOption">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Fetch Option:</property>
-          </widget>
-          <packing>
-            <property name="X">331</property>
-            <property name="Y">157</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.ComboBox" id="comboFetchOption">
-            <property name="MemberName" />
-            <property name="IsTextCombo">True</property>
-            <property name="Items" translatable="yes">ifqsize
-mplat
-speed</property>
-            <property name="Active">0</property>
-          </widget>
-          <packing>
-            <property name="X">426</property>
-            <property name="Y">151</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="lbFetchValue">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Fetch Value:</property>
-          </widget>
-          <packing>
-            <property name="X">330</property>
-            <property name="Y">191</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.SpinButton" id="spinFetch">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Upper">100</property>
-            <property name="PageIncrement">10</property>
-            <property name="StepIncrement">1</property>
-            <property name="ClimbRate">1</property>
-            <property name="Numeric">True</property>
-            <property name="Value">4</property>
-          </widget>
-          <packing>
-            <property name="X">431</property>
-            <property name="Y">187</property>
-          </packing>
-        </child>
-        <child>
           <widget class="Gtk.CheckButton" id="chkBpred">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
@@ -191,36 +95,6 @@ speed</property>
           <packing>
             <property name="X">26</property>
             <property name="Y">231</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.CheckButton" id="chkFetch">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Label" translatable="yes">with fetch</property>
-            <property name="DrawIndicator">True</property>
-            <property name="HasLabel">True</property>
-            <property name="UseUnderline">True</property>
-            <signal name="Toggled" handler="OnChkFetch" />
-          </widget>
-          <packing>
-            <property name="X">331</property>
-            <property name="Y">122</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.CheckButton" id="chkPtrace">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Label" translatable="yes">with ptrace</property>
-            <property name="DrawIndicator">True</property>
-            <property name="HasLabel">True</property>
-            <property name="UseUnderline">True</property>
-            <signal name="Toggled" handler="OnChkPtrace" />
-          </widget>
-          <packing>
-            <property name="X">29</property>
-            <property name="Y">124</property>
           </packing>
         </child>
         <child>
@@ -308,23 +182,13 @@ spec_update</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="lbBpredBimodTableSize">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Table Size:</property>
-          </widget>
-          <packing>
-            <property name="X">26</property>
-            <property name="Y">295</property>
-          </packing>
-        </child>
-        <child>
           <widget class="Gtk.Label" id="lbBpred2levL1Size">
             <property name="MemberName" />
             <property name="LabelProp" translatable="yes">Cache L1 Size:</property>
           </widget>
           <packing>
-            <property name="X">23</property>
-            <property name="Y">328</property>
+            <property name="X">27</property>
+            <property name="Y">292</property>
           </packing>
         </child>
         <child>
@@ -337,11 +201,11 @@ spec_update</property>
             <property name="StepIncrement">1</property>
             <property name="ClimbRate">1</property>
             <property name="Numeric">True</property>
-            <property name="Value">32</property>
+            <property name="Value">1</property>
           </widget>
           <packing>
-            <property name="X">111</property>
-            <property name="Y">323</property>
+            <property name="X">116</property>
+            <property name="Y">289</property>
           </packing>
         </child>
         <child>
@@ -354,11 +218,11 @@ spec_update</property>
             <property name="StepIncrement">1</property>
             <property name="ClimbRate">1</property>
             <property name="Numeric">True</property>
-            <property name="Value">64</property>
+            <property name="Value">1024</property>
           </widget>
           <packing>
-            <property name="X">113</property>
-            <property name="Y">354</property>
+            <property name="X">116</property>
+            <property name="Y">320</property>
           </packing>
         </child>
         <child>
@@ -367,8 +231,8 @@ spec_update</property>
             <property name="LabelProp" translatable="yes">Cache L2 Size:</property>
           </widget>
           <packing>
-            <property name="X">26</property>
-            <property name="Y">356</property>
+            <property name="X">27</property>
+            <property name="Y">323</property>
           </packing>
         </child>
         <child>
@@ -377,8 +241,208 @@ spec_update</property>
             <property name="LabelProp" translatable="yes">History Size:</property>
           </widget>
           <packing>
-            <property name="X">220</property>
-            <property name="Y">327</property>
+            <property name="X">222</property>
+            <property name="Y">293</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBpred2levHistSize">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">8</property>
+          </widget>
+          <packing>
+            <property name="X">301</property>
+            <property name="Y">287</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBpredRasRasSize">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+          </widget>
+          <packing>
+            <property name="X">113</property>
+            <property name="Y">352</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBpredRasRasSize">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Ras Size:</property>
+          </widget>
+          <packing>
+            <property name="X">48</property>
+            <property name="Y">352</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkFetch">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with fetch</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkFetch" />
+          </widget>
+          <packing>
+            <property name="X">23</property>
+            <property name="Y">94</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbFetchOption">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Fetch Option:</property>
+          </widget>
+          <packing>
+            <property name="X">24</property>
+            <property name="Y">121</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboFetchOption">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">ifqsize
+mplat
+speed</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">116</property>
+            <property name="Y">113</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbFetchValue">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Fetch Value:</property>
+          </widget>
+          <packing>
+            <property name="X">25</property>
+            <property name="Y">150</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinFetch">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">102</property>
+            <property name="Y">149</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBpredBtbNumSets">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">512</property>
+          </widget>
+          <packing>
+            <property name="X">130</property>
+            <property name="Y">384</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBpredBtbNumSets">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">26</property>
+            <property name="Y">388</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBpredBtbAssociativity">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">235</property>
+            <property name="Y">387</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBpredBtbAssociativity">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">317</property>
+            <property name="Y">383</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBpredCombMetaTableSize">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Meta Table Size:</property>
+          </widget>
+          <packing>
+            <property name="X">214</property>
+            <property name="Y">355</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBpredCombMetaTableSize">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1024</property>
+          </widget>
+          <packing>
+            <property name="X">313</property>
+            <property name="Y">349</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBpredBimodTableSize">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Table Size:</property>
+          </widget>
+          <packing>
+            <property name="X">219</property>
+            <property name="Y">322</property>
           </packing>
         </child>
         <child>
@@ -394,51 +458,8 @@ spec_update</property>
             <property name="Value">512</property>
           </widget>
           <packing>
-            <property name="X">96</property>
-            <property name="Y">290</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.SpinButton" id="spinBpred2levHistSize">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Upper">9000000000</property>
-            <property name="PageIncrement">10</property>
-            <property name="PageSize">100000</property>
-            <property name="StepIncrement">1</property>
-            <property name="ClimbRate">1</property>
-            <property name="Numeric">True</property>
-          </widget>
-          <packing>
-            <property name="X">302</property>
-            <property name="Y">323</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Label" id="lbBpredCombMetaTableSize">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Meta Table Size:</property>
-          </widget>
-          <packing>
-            <property name="X">18</property>
-            <property name="Y">393</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.SpinButton" id="spinBpredCombMetaTableSize">
-            <property name="MemberName" />
-            <property name="CanFocus">True</property>
-            <property name="Upper">9000000000</property>
-            <property name="PageIncrement">10</property>
-            <property name="PageSize">100000</property>
-            <property name="StepIncrement">1</property>
-            <property name="ClimbRate">1</property>
-            <property name="Numeric">True</property>
-            <property name="Value">512</property>
-          </widget>
-          <packing>
-            <property name="X">114</property>
-            <property name="Y">388</property>
+            <property name="X">280</property>
+            <property name="Y">318</property>
           </packing>
         </child>
       </widget>
