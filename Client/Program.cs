@@ -7,8 +7,8 @@ namespace Client
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            BuildSimCommand simCommand = new BuildSimCommand();
-            simCommand.GetPropertis();
+            BuildAndLaunch simCommand = new BuildAndLaunch();
+            simCommand.LaunchSim();
         }
     }
 }

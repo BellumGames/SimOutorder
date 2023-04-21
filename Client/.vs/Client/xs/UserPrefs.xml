@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{3E4E69DD-B49D-4C5B-82D0-11F1061E85FF}|Default">
   <MonoDevelop.Ide.ItemProperties.Client PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BuildSimCommand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BuildAndLaunch.cs">
     <Files>
-      <File FileName="Program.cs" Line="10" Column="63" />
-      <File FileName="BuildSimCommand.cs" Line="12" Column="28" />
-      <File FileName="CommandSettings.json" Line="3" Column="16" />
+      <File FileName="Program.cs" Line="10" Column="59" />
+      <File FileName="BuildAndLaunch.cs" Line="11" Column="32" />
+      <File FileName="Metrics.cs" Line="2" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,8 +14,7 @@
             <Node name="Client" expanded="True">
               <Node name="References" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Utilitis" expanded="True" />
-              <Node name="BuildSimCommand.cs" selected="True" />
+              <Node name="BuildAndLaunch.cs" selected="True" />
             </Node>
           </Node>
         </State>
