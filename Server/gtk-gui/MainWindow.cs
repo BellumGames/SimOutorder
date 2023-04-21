@@ -3,6 +3,78 @@
 
 public partial class MainWindow
 {
+	private global::Gtk.Fixed fixed1;
+
+	private global::Gtk.Label label1;
+
+	private global::Gtk.Label label2;
+
+	private global::Gtk.SpinButton spinInstrNum;
+
+	private global::Gtk.SpinButton spinFastForwardCount;
+
+	private global::Gtk.Label label3;
+
+	private global::Gtk.Button btnSimulate;
+
+	private global::Gtk.Button btnStartServer;
+
+	private global::Gtk.Button btnReset;
+
+	private global::Gtk.Button btnHelp;
+
+	private global::Gtk.CheckButton chkFetch;
+
+	private global::Gtk.Label lbFetchOption;
+
+	private global::Gtk.ComboBox comboFetchOption;
+
+	private global::Gtk.Label lbFetchValue;
+
+	private global::Gtk.SpinButton spinFetch;
+
+	private global::Gtk.CheckButton chkBpred;
+
+	private global::Gtk.Label lbBpred;
+
+	private global::Gtk.ComboBox comboBpred;
+
+	private global::Gtk.Label lbBpred2levL1Size;
+
+	private global::Gtk.SpinButton spinBpred2levL1Size;
+
+	private global::Gtk.SpinButton spinBpred2levL2Size;
+
+	private global::Gtk.Label lbBpred2levL2Size;
+
+	private global::Gtk.SpinButton spinBpredRasRasSize;
+
+	private global::Gtk.Label lbBpredRasRasSize;
+
+	private global::Gtk.Label lbBpredCombMetaTableSize;
+
+	private global::Gtk.SpinButton spinBpredCombMetaTableSize;
+
+	private global::Gtk.SpinButton spinBpredBtbNumSets;
+
+	private global::Gtk.Label lbBpredBtbNumSets;
+
+	private global::Gtk.SpinButton spinBpredBtbAssociativity;
+
+	private global::Gtk.SpinButton spinBpred2levHistSize;
+
+	private global::Gtk.SpinButton spinBpredBimodTableSize;
+
+	private global::Gtk.Label lbBpred2levHistSize;
+
+	private global::Gtk.Label lbBpredBimodTableSize;
+
+	private global::Gtk.Label lbBpredBtbAssociativity;
+
+	private global::Gtk.Label lbBpredSpecUpdate;
+
+	private global::Gtk.ComboBox comboBpredSpecUpdate;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -10,13 +82,388 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.BorderWidth = ((uint)(3));
+		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.fixed1 = new global::Gtk.Fixed();
+		this.fixed1.Name = "fixed1";
+		this.fixed1.HasWindow = false;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label1 = new global::Gtk.Label();
+		this.label1.Name = "label1";
+		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("Server");
+		this.label1.Justify = ((global::Gtk.Justification)(2));
+		this.fixed1.Add(this.label1);
+		global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label1]));
+		w1.X = 320;
+		w1.Y = 8;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label2 = new global::Gtk.Label();
+		this.label2.Name = "label2";
+		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("Number of instructions:");
+		this.fixed1.Add(this.label2);
+		global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
+		w2.X = 18;
+		w2.Y = 29;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinInstrNum = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinInstrNum.CanFocus = true;
+		this.spinInstrNum.Name = "spinInstrNum";
+		this.spinInstrNum.Adjustment.PageIncrement = 10D;
+		this.spinInstrNum.Adjustment.PageSize = 100000D;
+		this.spinInstrNum.ClimbRate = 1D;
+		this.spinInstrNum.Numeric = true;
+		this.spinInstrNum.Value = 10000D;
+		this.fixed1.Add(this.spinInstrNum);
+		global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinInstrNum]));
+		w3.X = 166;
+		w3.Y = 24;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinFastForwardCount = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinFastForwardCount.CanFocus = true;
+		this.spinFastForwardCount.Name = "spinFastForwardCount";
+		this.spinFastForwardCount.Adjustment.PageIncrement = 10D;
+		this.spinFastForwardCount.Adjustment.PageSize = 100000D;
+		this.spinFastForwardCount.ClimbRate = 1D;
+		this.spinFastForwardCount.Numeric = true;
+		this.fixed1.Add(this.spinFastForwardCount);
+		global::Gtk.Fixed.FixedChild w4 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinFastForwardCount]));
+		w4.X = 166;
+		w4.Y = 55;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.label3 = new global::Gtk.Label();
+		this.label3.Name = "label3";
+		this.label3.LabelProp = global::Mono.Unix.Catalog.GetString("Fast Forward:");
+		this.fixed1.Add(this.label3);
+		global::Gtk.Fixed.FixedChild w5 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label3]));
+		w5.X = 74;
+		w5.Y = 56;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.btnSimulate = new global::Gtk.Button();
+		this.btnSimulate.CanFocus = true;
+		this.btnSimulate.Name = "btnSimulate";
+		this.btnSimulate.UseUnderline = true;
+		this.btnSimulate.Label = global::Mono.Unix.Catalog.GetString("Simulate");
+		this.fixed1.Add(this.btnSimulate);
+		global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnSimulate]));
+		w6.X = 316;
+		w6.Y = 64;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.btnStartServer = new global::Gtk.Button();
+		this.btnStartServer.CanFocus = true;
+		this.btnStartServer.Name = "btnStartServer";
+		this.btnStartServer.UseUnderline = true;
+		this.btnStartServer.Label = global::Mono.Unix.Catalog.GetString("Start Server");
+		this.fixed1.Add(this.btnStartServer);
+		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnStartServer]));
+		w7.X = 310;
+		w7.Y = 28;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.btnReset = new global::Gtk.Button();
+		this.btnReset.CanFocus = true;
+		this.btnReset.Name = "btnReset";
+		this.btnReset.UseUnderline = true;
+		this.btnReset.Label = global::Mono.Unix.Catalog.GetString("Reset");
+		this.fixed1.Add(this.btnReset);
+		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnReset]));
+		w8.X = 395;
+		w8.Y = 64;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.btnHelp = new global::Gtk.Button();
+		this.btnHelp.CanFocus = true;
+		this.btnHelp.Name = "btnHelp";
+		this.btnHelp.UseUnderline = true;
+		this.btnHelp.Label = global::Mono.Unix.Catalog.GetString("Help");
+		this.fixed1.Add(this.btnHelp);
+		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnHelp]));
+		w9.X = 399;
+		w9.Y = 28;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkFetch = new global::Gtk.CheckButton();
+		this.chkFetch.CanFocus = true;
+		this.chkFetch.Name = "chkFetch";
+		this.chkFetch.Label = global::Mono.Unix.Catalog.GetString("with fetch");
+		this.chkFetch.DrawIndicator = true;
+		this.chkFetch.UseUnderline = true;
+		this.fixed1.Add(this.chkFetch);
+		global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkFetch]));
+		w10.X = 23;
+		w10.Y = 94;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbFetchOption = new global::Gtk.Label();
+		this.lbFetchOption.Name = "lbFetchOption";
+		this.lbFetchOption.LabelProp = global::Mono.Unix.Catalog.GetString("Fetch Option:");
+		this.fixed1.Add(this.lbFetchOption);
+		global::Gtk.Fixed.FixedChild w11 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbFetchOption]));
+		w11.X = 24;
+		w11.Y = 121;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.comboFetchOption = global::Gtk.ComboBox.NewText();
+		this.comboFetchOption.AppendText(global::Mono.Unix.Catalog.GetString("ifqsize"));
+		this.comboFetchOption.AppendText(global::Mono.Unix.Catalog.GetString("mplat"));
+		this.comboFetchOption.AppendText(global::Mono.Unix.Catalog.GetString("speed"));
+		this.comboFetchOption.Name = "comboFetchOption";
+		this.comboFetchOption.Active = 0;
+		this.fixed1.Add(this.comboFetchOption);
+		global::Gtk.Fixed.FixedChild w12 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.comboFetchOption]));
+		w12.X = 116;
+		w12.Y = 113;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbFetchValue = new global::Gtk.Label();
+		this.lbFetchValue.Name = "lbFetchValue";
+		this.lbFetchValue.LabelProp = global::Mono.Unix.Catalog.GetString("Fetch Value:");
+		this.fixed1.Add(this.lbFetchValue);
+		global::Gtk.Fixed.FixedChild w13 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbFetchValue]));
+		w13.X = 25;
+		w13.Y = 150;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinFetch = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinFetch.CanFocus = true;
+		this.spinFetch.Name = "spinFetch";
+		this.spinFetch.Adjustment.PageIncrement = 10D;
+		this.spinFetch.Adjustment.PageSize = 100000D;
+		this.spinFetch.ClimbRate = 1D;
+		this.spinFetch.Numeric = true;
+		this.spinFetch.Value = 4D;
+		this.fixed1.Add(this.spinFetch);
+		global::Gtk.Fixed.FixedChild w14 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinFetch]));
+		w14.X = 102;
+		w14.Y = 149;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkBpred = new global::Gtk.CheckButton();
+		this.chkBpred.CanFocus = true;
+		this.chkBpred.Name = "chkBpred";
+		this.chkBpred.Label = global::Mono.Unix.Catalog.GetString("with bpred options");
+		this.chkBpred.Active = true;
+		this.chkBpred.DrawIndicator = true;
+		this.chkBpred.UseUnderline = true;
+		this.fixed1.Add(this.chkBpred);
+		global::Gtk.Fixed.FixedChild w15 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkBpred]));
+		w15.X = 21;
+		w15.Y = 181;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpred = new global::Gtk.Label();
+		this.lbBpred.Name = "lbBpred";
+		this.lbBpred.LabelProp = global::Mono.Unix.Catalog.GetString("Bpred option:");
+		this.fixed1.Add(this.lbBpred);
+		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpred]));
+		w16.X = 21;
+		w16.Y = 212;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.comboBpred = global::Gtk.ComboBox.NewText();
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("bimod"));
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("2lev"));
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("comb"));
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("ras"));
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("btb"));
+		this.comboBpred.AppendText(global::Mono.Unix.Catalog.GetString("spec_update"));
+		this.comboBpred.Name = "comboBpred";
+		this.comboBpred.Active = 0;
+		this.fixed1.Add(this.comboBpred);
+		global::Gtk.Fixed.FixedChild w17 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.comboBpred]));
+		w17.X = 107;
+		w17.Y = 205;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpred2levL1Size = new global::Gtk.Label();
+		this.lbBpred2levL1Size.Name = "lbBpred2levL1Size";
+		this.lbBpred2levL1Size.LabelProp = global::Mono.Unix.Catalog.GetString("Cache L1 Size:");
+		this.fixed1.Add(this.lbBpred2levL1Size);
+		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpred2levL1Size]));
+		w18.X = 21;
+		w18.Y = 245;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpred2levL1Size = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpred2levL1Size.CanFocus = true;
+		this.spinBpred2levL1Size.Name = "spinBpred2levL1Size";
+		this.spinBpred2levL1Size.Adjustment.PageIncrement = 10D;
+		this.spinBpred2levL1Size.Adjustment.PageSize = 100000D;
+		this.spinBpred2levL1Size.ClimbRate = 1D;
+		this.spinBpred2levL1Size.Numeric = true;
+		this.spinBpred2levL1Size.Value = 1D;
+		this.fixed1.Add(this.spinBpred2levL1Size);
+		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpred2levL1Size]));
+		w19.X = 107;
+		w19.Y = 241;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpred2levL2Size = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpred2levL2Size.CanFocus = true;
+		this.spinBpred2levL2Size.Name = "spinBpred2levL2Size";
+		this.spinBpred2levL2Size.Adjustment.PageIncrement = 10D;
+		this.spinBpred2levL2Size.Adjustment.PageSize = 100000D;
+		this.spinBpred2levL2Size.ClimbRate = 1D;
+		this.spinBpred2levL2Size.Numeric = true;
+		this.spinBpred2levL2Size.Value = 1024D;
+		this.fixed1.Add(this.spinBpred2levL2Size);
+		global::Gtk.Fixed.FixedChild w20 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpred2levL2Size]));
+		w20.X = 105;
+		w20.Y = 272;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpred2levL2Size = new global::Gtk.Label();
+		this.lbBpred2levL2Size.Name = "lbBpred2levL2Size";
+		this.lbBpred2levL2Size.LabelProp = global::Mono.Unix.Catalog.GetString("Cache L2 Size:");
+		this.fixed1.Add(this.lbBpred2levL2Size);
+		global::Gtk.Fixed.FixedChild w21 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpred2levL2Size]));
+		w21.X = 19;
+		w21.Y = 274;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpredRasRasSize = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpredRasRasSize.CanFocus = true;
+		this.spinBpredRasRasSize.Name = "spinBpredRasRasSize";
+		this.spinBpredRasRasSize.Adjustment.PageIncrement = 10D;
+		this.spinBpredRasRasSize.Adjustment.PageSize = 100000D;
+		this.spinBpredRasRasSize.ClimbRate = 1D;
+		this.spinBpredRasRasSize.Numeric = true;
+		this.spinBpredRasRasSize.Value = 8D;
+		this.fixed1.Add(this.spinBpredRasRasSize);
+		global::Gtk.Fixed.FixedChild w22 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpredRasRasSize]));
+		w22.X = 104;
+		w22.Y = 303;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredRasRasSize = new global::Gtk.Label();
+		this.lbBpredRasRasSize.Name = "lbBpredRasRasSize";
+		this.lbBpredRasRasSize.LabelProp = global::Mono.Unix.Catalog.GetString("Ras Size:");
+		this.fixed1.Add(this.lbBpredRasRasSize);
+		global::Gtk.Fixed.FixedChild w23 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredRasRasSize]));
+		w23.X = 48;
+		w23.Y = 305;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredCombMetaTableSize = new global::Gtk.Label();
+		this.lbBpredCombMetaTableSize.Name = "lbBpredCombMetaTableSize";
+		this.lbBpredCombMetaTableSize.LabelProp = global::Mono.Unix.Catalog.GetString("Meta Table Size:");
+		this.fixed1.Add(this.lbBpredCombMetaTableSize);
+		global::Gtk.Fixed.FixedChild w24 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredCombMetaTableSize]));
+		w24.X = 207;
+		w24.Y = 306;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpredCombMetaTableSize = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpredCombMetaTableSize.CanFocus = true;
+		this.spinBpredCombMetaTableSize.Name = "spinBpredCombMetaTableSize";
+		this.spinBpredCombMetaTableSize.Adjustment.PageIncrement = 10D;
+		this.spinBpredCombMetaTableSize.Adjustment.PageSize = 100000D;
+		this.spinBpredCombMetaTableSize.ClimbRate = 1D;
+		this.spinBpredCombMetaTableSize.Numeric = true;
+		this.spinBpredCombMetaTableSize.Value = 1024D;
+		this.fixed1.Add(this.spinBpredCombMetaTableSize);
+		global::Gtk.Fixed.FixedChild w25 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpredCombMetaTableSize]));
+		w25.X = 302;
+		w25.Y = 301;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpredBtbNumSets = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpredBtbNumSets.CanFocus = true;
+		this.spinBpredBtbNumSets.Name = "spinBpredBtbNumSets";
+		this.spinBpredBtbNumSets.Adjustment.PageIncrement = 10D;
+		this.spinBpredBtbNumSets.Adjustment.PageSize = 100000D;
+		this.spinBpredBtbNumSets.ClimbRate = 1D;
+		this.spinBpredBtbNumSets.Numeric = true;
+		this.spinBpredBtbNumSets.Value = 512D;
+		this.fixed1.Add(this.spinBpredBtbNumSets);
+		global::Gtk.Fixed.FixedChild w26 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpredBtbNumSets]));
+		w26.X = 104;
+		w26.Y = 335;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredBtbNumSets = new global::Gtk.Label();
+		this.lbBpredBtbNumSets.Name = "lbBpredBtbNumSets";
+		this.lbBpredBtbNumSets.LabelProp = global::Mono.Unix.Catalog.GetString("Number of Sets:");
+		this.fixed1.Add(this.lbBpredBtbNumSets);
+		global::Gtk.Fixed.FixedChild w27 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredBtbNumSets]));
+		w27.X = 7;
+		w27.Y = 339;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpredBtbAssociativity = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpredBtbAssociativity.CanFocus = true;
+		this.spinBpredBtbAssociativity.Name = "spinBpredBtbAssociativity";
+		this.spinBpredBtbAssociativity.Adjustment.PageIncrement = 10D;
+		this.spinBpredBtbAssociativity.Adjustment.PageSize = 100000D;
+		this.spinBpredBtbAssociativity.ClimbRate = 1D;
+		this.spinBpredBtbAssociativity.Numeric = true;
+		this.spinBpredBtbAssociativity.Value = 4D;
+		this.fixed1.Add(this.spinBpredBtbAssociativity);
+		global::Gtk.Fixed.FixedChild w28 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpredBtbAssociativity]));
+		w28.X = 302;
+		w28.Y = 333;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpred2levHistSize = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpred2levHistSize.CanFocus = true;
+		this.spinBpred2levHistSize.Name = "spinBpred2levHistSize";
+		this.spinBpred2levHistSize.Adjustment.PageIncrement = 10D;
+		this.spinBpred2levHistSize.Adjustment.PageSize = 100000D;
+		this.spinBpred2levHistSize.ClimbRate = 1D;
+		this.spinBpred2levHistSize.Numeric = true;
+		this.spinBpred2levHistSize.Value = 8D;
+		this.fixed1.Add(this.spinBpred2levHistSize);
+		global::Gtk.Fixed.FixedChild w29 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpred2levHistSize]));
+		w29.X = 302;
+		w29.Y = 240;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinBpredBimodTableSize = new global::Gtk.SpinButton(0D, 9000000000D, 1D);
+		this.spinBpredBimodTableSize.CanFocus = true;
+		this.spinBpredBimodTableSize.Name = "spinBpredBimodTableSize";
+		this.spinBpredBimodTableSize.Adjustment.PageIncrement = 10D;
+		this.spinBpredBimodTableSize.Adjustment.PageSize = 100000D;
+		this.spinBpredBimodTableSize.ClimbRate = 1D;
+		this.spinBpredBimodTableSize.Numeric = true;
+		this.spinBpredBimodTableSize.Value = 512D;
+		this.fixed1.Add(this.spinBpredBimodTableSize);
+		global::Gtk.Fixed.FixedChild w30 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinBpredBimodTableSize]));
+		w30.X = 301;
+		w30.Y = 270;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpred2levHistSize = new global::Gtk.Label();
+		this.lbBpred2levHistSize.Name = "lbBpred2levHistSize";
+		this.lbBpred2levHistSize.LabelProp = global::Mono.Unix.Catalog.GetString("History Size:");
+		this.fixed1.Add(this.lbBpred2levHistSize);
+		global::Gtk.Fixed.FixedChild w31 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpred2levHistSize]));
+		w31.X = 223;
+		w31.Y = 243;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredBimodTableSize = new global::Gtk.Label();
+		this.lbBpredBimodTableSize.Name = "lbBpredBimodTableSize";
+		this.lbBpredBimodTableSize.LabelProp = global::Mono.Unix.Catalog.GetString("Table Size:");
+		this.fixed1.Add(this.lbBpredBimodTableSize);
+		global::Gtk.Fixed.FixedChild w32 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredBimodTableSize]));
+		w32.X = 234;
+		w32.Y = 272;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredBtbAssociativity = new global::Gtk.Label();
+		this.lbBpredBtbAssociativity.Name = "lbBpredBtbAssociativity";
+		this.lbBpredBtbAssociativity.LabelProp = global::Mono.Unix.Catalog.GetString("Associativity:");
+		this.fixed1.Add(this.lbBpredBtbAssociativity);
+		global::Gtk.Fixed.FixedChild w33 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredBtbAssociativity]));
+		w33.X = 220;
+		w33.Y = 335;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbBpredSpecUpdate = new global::Gtk.Label();
+		this.lbBpredSpecUpdate.Name = "lbBpredSpecUpdate";
+		this.lbBpredSpecUpdate.LabelProp = global::Mono.Unix.Catalog.GetString("Spec Update:");
+		this.fixed1.Add(this.lbBpredSpecUpdate);
+		global::Gtk.Fixed.FixedChild w34 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbBpredSpecUpdate]));
+		w34.X = 228;
+		w34.Y = 210;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.comboBpredSpecUpdate = global::Gtk.ComboBox.NewText();
+		this.comboBpredSpecUpdate.AppendText(global::Mono.Unix.Catalog.GetString("null"));
+		this.comboBpredSpecUpdate.AppendText(global::Mono.Unix.Catalog.GetString("ID"));
+		this.comboBpredSpecUpdate.AppendText(global::Mono.Unix.Catalog.GetString("WB"));
+		this.comboBpredSpecUpdate.Name = "comboBpredSpecUpdate";
+		this.comboBpredSpecUpdate.Active = 0;
+		this.fixed1.Add(this.comboBpredSpecUpdate);
+		global::Gtk.Fixed.FixedChild w35 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.comboBpredSpecUpdate]));
+		w35.X = 312;
+		w35.Y = 202;
+		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 400;
-		this.DefaultHeight = 300;
+		this.DefaultWidth = 1210;
+		this.DefaultHeight = 630;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
+		this.btnSimulate.Clicked += new global::System.EventHandler(this.OnBtnSimulate);
+		this.btnStartServer.Clicked += new global::System.EventHandler(this.OnBtnStartServer);
+		this.btnReset.Clicked += new global::System.EventHandler(this.OnBtnReset);
+		this.btnHelp.Clicked += new global::System.EventHandler(this.OnBtnHelp);
+		this.chkFetch.Toggled += new global::System.EventHandler(this.OnChkFetch);
+		this.chkBpred.Toggled += new global::System.EventHandler(this.OnChkBpred);
+		this.comboBpred.Changed += new global::System.EventHandler(this.OnComboBpred);
 	}
 }
