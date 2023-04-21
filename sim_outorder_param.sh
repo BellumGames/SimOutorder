@@ -39,6 +39,7 @@ latency of all pipeline operations.
 -bpred:ras       <int>            #            8 # return address stack size (0 for no return stack)
 -bpred:btb       <int list...>    # 512 4 # BTB config (<num_sets> <associativity>)
 -bpred:spec_update <string>         #       <null> # speculative predictors update in {ID|WB} (default non-spec)
+
 -decode:width    <int>            #            4 # instruction decode B/W (insts/cycle)
 -issue:width     <int>            #            4 # instruction issue B/W (insts/cycle)
 -issue:inorder   <true|false>     #        false # run pipeline with in-order issue

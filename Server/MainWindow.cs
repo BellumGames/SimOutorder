@@ -6,23 +6,18 @@ public partial class MainWindow : Gtk.Window
     public static string command = "./sim-outorder ";
     public static uint MaxInstr { get; set; }
     public static uint FastFowardCount { get; set; }
-
     public static string FetchType { get; set; }
     public static uint FetchValue { get; set; }
-
     public static string BpredMod { get; set; }
     public static uint BpredBimodTableSize { get; set; }
-
     public static uint Bpred2levL1Size { get; set; }
     public static uint Bpred2levL2Size { get; set; }
     public static uint Bpred2levHistSize { get; set; }
-
     public static uint BpredCombMetaTableSize { get; set; }
-
     public static uint BpredRasRasSize { get; set; }
-
     public static uint BpredBtbNumSets { get; set; }
     public static uint BpredBtbAssociativity { get; set; }
+    public static string BpredSpecUpdate { get; set; }
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -70,7 +65,7 @@ public partial class MainWindow : Gtk.Window
         {
             BpredMod = comboBpred.ActiveText;
             command += $"-bpred:{BpredMod} ";
-            switch (comboBpred.ActiveText)
+            switch (BpredMod)
             {
                 case "bimod":
                     BpredBimodTableSize = (uint)spinBpredBimodTableSize.Value;
@@ -87,13 +82,25 @@ public partial class MainWindow : Gtk.Window
                     command += $"{BpredCombMetaTableSize} ";
                     break;
                 case "ras":
+                    BpredRasRasSize = (uint)spinBpredRasRasSize.Value;
+                    command += $"{BpredRasRasSize} ";
                     break;
                 case "btb":
+                    BpredBtbNumSets = (uint)spinBpredBtbNumSets.Value;
+                    BpredBtbAssociativity = (uint)spinBpredBtbAssociativity.Value;
+                    command += $"{BpredBtbNumSets} {BpredBtbAssociativity} ";
                     break;
                 case "spec_update":
+                    BpredSpecUpdate = comboBpredSpecUpdate.ActiveText;
+                    if (BpredSpecUpdate == "null") 
+                    {
+                        BpredSpecUpdate = "";
+                    }
+                    command += $"{BpredSpecUpdate} ";
                     break;
             }
         }
+        //
     }
 
     protected void OnBtnReset(object sender, EventArgs e)
@@ -108,7 +115,7 @@ public partial class MainWindow : Gtk.Window
 
         chkFetch.Active = false;
         comboFetchOption.Active = 0;
-        spinFetch.Value = 0;
+        spinFetch.Value = 4;
 
         chkBpred.Active = true;
         comboBpred.Active = 0;
@@ -117,9 +124,11 @@ public partial class MainWindow : Gtk.Window
         spinBpred2levL2Size.Value = 1024;
         spinBpred2levHistSize.Value = 8;
         spinBpredCombMetaTableSize.Value = 1024;
-        spinBpredRasRasSize.Value = 0;
+        spinBpredRasRasSize.Value = 8;
         spinBpredBtbNumSets.Value = 512;
         spinBpredBtbAssociativity.Value = 4;
+
+        comboBpredSpecUpdate.Active = 0;
     }
 
     protected void OnChkFetch(object sender, EventArgs e)
@@ -182,6 +191,9 @@ public partial class MainWindow : Gtk.Window
             lbBpredBtbAssociativity.Visible = false;
             spinBpredBtbNumSets.Visible = false;
             spinBpredBtbAssociativity.Visible = false;
+
+            lbBpredSpecUpdate.Visible = false;
+            comboBpredSpecUpdate.Visible = false;
         }
     }
 
@@ -215,6 +227,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = false;
                 spinBpredBtbNumSets.Visible = false;
                 spinBpredBtbAssociativity.Visible = false;
+
+                lbBpredSpecUpdate.Visible = false;
+                comboBpredSpecUpdate.Visible = false;
                 break;
             case "2lev":
                 lbBpredBimodTableSize.Visible = false;
@@ -237,6 +252,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = false;
                 spinBpredBtbNumSets.Visible = false;
                 spinBpredBtbAssociativity.Visible = false;
+
+                lbBpredSpecUpdate.Visible = false;
+                comboBpredSpecUpdate.Visible = false;
                 break;
             case "comb":
                 lbBpredBimodTableSize.Visible = false;
@@ -259,6 +277,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = false;
                 spinBpredBtbNumSets.Visible = false;
                 spinBpredBtbAssociativity.Visible = false;
+
+                lbBpredSpecUpdate.Visible = false;
+                comboBpredSpecUpdate.Visible = false;
                 break;
             case "ras":
                 lbBpredBimodTableSize.Visible = false;
@@ -281,6 +302,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = false;
                 spinBpredBtbNumSets.Visible = false;
                 spinBpredBtbAssociativity.Visible = false;
+
+                lbBpredSpecUpdate.Visible = false;
+                comboBpredSpecUpdate.Visible = false;
                 break;
             case "btb":
                 lbBpredBimodTableSize.Visible = false;
@@ -303,6 +327,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = true;
                 spinBpredBtbNumSets.Visible = true;
                 spinBpredBtbAssociativity.Visible = true;
+
+                lbBpredSpecUpdate.Visible = false;
+                comboBpredSpecUpdate.Visible = false;
                 break;
             case "spec_update":
                 lbBpredBimodTableSize.Visible = false;
@@ -325,6 +352,9 @@ public partial class MainWindow : Gtk.Window
                 lbBpredBtbAssociativity.Visible = false;
                 spinBpredBtbNumSets.Visible = false;
                 spinBpredBtbAssociativity.Visible = false;
+
+                lbBpredSpecUpdate.Visible = true;
+                comboBpredSpecUpdate.Visible = true;
                 break;
         }
     }
