@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{3E4E69DD-B49D-4C5B-82D0-11F1061E85FF}|Default">
+  <MonoDevelop.Ide.ItemProperties.Client PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BuildAndLaunch.cs">
+    <Files>
+      <File FileName="Program.cs" Line="10" Column="59" />
+      <File FileName="BuildAndLaunch.cs" Line="15" Column="80" />
+      <File FileName="Metrics.cs" Line="26" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Client" expanded="True">
+            <Node name="Solution Items" expanded="True" />
+            <Node name="Client" expanded="True">
+              <Node name="References" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="BuildAndLaunch.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
