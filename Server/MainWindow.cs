@@ -33,6 +33,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void Init()
     {
+        lbConsole.Text += "\n";
         Fetch();
         Bpred();
         Decode();
@@ -98,13 +99,13 @@ public partial class MainWindow : Gtk.Window
         serverSocket.Bind(endPoint);
         serverSocket.Listen(10);
 
-        Console.WriteLine("Server started. Waiting for clients...");
+        lbConsole.Text += "Server started. Waiting for clients...\n";
 
         while (true)
         {
             // Accept incoming client connections
             System.Net.Sockets.Socket clientSocket = serverSocket.Accept();
-            Console.WriteLine("Client connected: " + clientSocket.RemoteEndPoint);
+            lbConsole.Text += "Client connected: " + clientSocket.RemoteEndPoint + "\n";
 
             // Handle client communication in a separate thread
             // (you can use Task.Run or other threading mechanisms)
@@ -113,21 +114,11 @@ public partial class MainWindow : Gtk.Window
             while ((bytesRead = clientSocket.Receive(buffer)) > 0)
             {
                 string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                Console.WriteLine("Received data from client: " + receivedData);
+                lbConsole.Text += "Received data from client: " + receivedData + "\n";
 
-                // Execute the received command as a process
-                Process process = new Process();
-                process.StartInfo.FileName = "cmd.exe"; // or your preferred shell
-                process.StartInfo.Arguments = "/c " + receivedData; // "/c" to run the command and exit
-                process.StartInfo.RedirectStandardOutput = true;
-                process.StartInfo.UseShellExecute = false;
-                process.StartInfo.CreateNoWindow = true;
-                process.Start();
-                string output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-
-                // Send the output of the command back to the client
-                byte[] responseBytes = Encoding.UTF8.GetBytes(output);
+                // Send response back to client
+                string response = "Hello from server!";
+                byte[] responseBytes = Encoding.UTF8.GetBytes(response);
                 clientSocket.Send(responseBytes);
             }
 
