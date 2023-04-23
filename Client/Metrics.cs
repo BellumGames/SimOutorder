@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 namespace Client
 {
@@ -21,12 +22,12 @@ namespace Client
         public double rataInlocuireDTLB { get; set; }
         public double rataInlocuireITLB { get; set; }
 
-        private readonly Metrics data;
+         
 
-        public Metrics() { }
 
         public Metrics parseString(string simulation)
         {
+            Metrics data = new Metrics();
             var values = new[] {
                 "il1.accesses", "il1.hits", "il1.replacements",
                 "dl1.accesses", "dl1.hits", "dl1.replacements",
@@ -38,12 +39,12 @@ namespace Client
             double il1Hit = 0, il2Hit = 0, dl1Hit = 0, dl2Hit = 0, itlbHit = 0, dtlbHit = 0;
             double il1Repl = 0, il2Repl = 0, dl1Repl = 0, dl2Repl = 0, itlbRepl = 0, dtlbRepl = 0;
 
-            using (StreamReader st = new StreamReader(simulation))
+            Int32 BufferReader = 131072;
+            using (StreamReader st = new StreamReader(simulation, Encoding.UTF8,true,BufferReader))
             {
-                while (!st.EndOfStream)
+                string line;
+                while ((line = st.ReadLine()) != null)
                 {
-                    string line = st.ReadLine();
-
                     if (values.Any(line.Contains))
                     {
                         var arguments = line.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries).Take(2).ToArray();
@@ -110,21 +111,21 @@ namespace Client
 
                 }
             }
-            data.rataInlocuireIL1 = il1Repl / il1Acc * 100;
-            data.rataInlocuireIL2 = il2Repl / il2Acc * 100;
-            data.rataInlocuireDL1 = dl1Repl / dl1Acc * 100;
-            data.rataInlocuireDL2 = dl2Repl / dl2Acc * 100;
-            data.rataInlocuireITLB = itlbRepl / itlbAcc * 100;
-            data.rataInlocuireDTLB = dtlbRepl / dtlbAcc * 100;
+            data.rataInlocuireIL1 = Math.Round(il1Repl / il1Acc * 100,2);
+            data.rataInlocuireIL2 = Math.Round(il2Repl / il2Acc * 100, 2);
+            data.rataInlocuireDL1 = Math.Round(dl1Repl / dl1Acc * 100, 2);
+            data.rataInlocuireDL2 = Math.Round(dl2Repl / dl2Acc * 100, 2);
+            data.rataInlocuireITLB = Math.Round(itlbRepl / itlbAcc * 100, 2);
+            data.rataInlocuireDTLB = Math.Round(dtlbRepl / dtlbAcc * 100, 2);
 
 
-            data.rataHitDL1 = dl1Hit / dl1Acc * 100;
-            data.rataHitDL2 = dl2Hit / dl2Acc * 100;
-            data.rataHitIL1 = il1Hit / il1Acc * 100;
-            data.rataHitIL2 = il2Hit / il2Acc * 100;
-            data.rataHitDTLB = dtlbHit / dtlbAcc * 100;
-            data.rataHitITLB = itlbHit / itlbAcc * 100;
-
+            data.rataHitDL1 = Math.Round(dl1Hit / dl1Acc * 100, 2);
+            data.rataHitDL2 = Math.Round(dl2Hit / dl2Acc * 100, 2);
+            data.rataHitIL1 = Math.Round(il1Hit / il1Acc * 100, 2);
+            data.rataHitIL2 = Math.Round(il2Hit / il2Acc * 100, 2);
+            data.rataHitDTLB = Math.Round(dtlbHit / dtlbAcc * 100, 2);
+            data.rataHitITLB = Math.Round(itlbHit / itlbAcc * 100, 2);
+            Console.WriteLine(data.rataHitDL1);
             return data;
 
         }
