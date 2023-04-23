@@ -16,7 +16,6 @@ namespace InterfataSimOutorder
 			this.BorderWidth = ((uint)(6));
 			// Container child InterfataSimOutorder.SecondaryWindow.Gtk.Container+ContainerChild
 			this.fixed1 = new global::Gtk.Fixed();
-			this.fixed1.Name = "fixed1";
 			this.fixed1.HasWindow = false;
 			this.Add(this.fixed1);
 			if ((this.Child != null))

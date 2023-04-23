@@ -14,6 +14,8 @@ public partial class MainWindow : Gtk.Window
     public static Dictionary<string, string> benchmarks = new Dictionary<string, string>();
     public static List<string> commands = new List<string>();
     public static string PATH_CLIENT = @"..\..\..\Client\bin\Debug\Client.exe";
+    public static int ServerStatus = 0;
+    public static Thread th = null;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -25,6 +27,7 @@ public partial class MainWindow : Gtk.Window
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
         Application.Quit();
+        th.Abort();
         a.RetVal = true;
     }
 
@@ -68,9 +71,23 @@ public partial class MainWindow : Gtk.Window
     protected void OnBtnStartServer(object sender, EventArgs e)
     {
         btnSimulate.Sensitive = true;
-        Thread th = new Thread(Net);
-        th.Start();
-        StartClients();
+        ServerThread();
+    }
+
+    protected void ServerThread() 
+    {
+        if (ServerStatus == 0)
+        {
+            th = new Thread(Net);
+            th.Start();
+            ServerStatus = 1;
+            StartClients();
+        }
+        else
+        {
+            th.Abort();
+            ServerStatus = 0;
+        }
     }
 
     protected void Net() 
@@ -98,9 +115,19 @@ public partial class MainWindow : Gtk.Window
                 string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
                 Console.WriteLine("Received data from client: " + receivedData);
 
-                // Send response back to client
-                string response = "Hello from server!";
-                byte[] responseBytes = Encoding.UTF8.GetBytes(response);
+                // Execute the received command as a process
+                Process process = new Process();
+                process.StartInfo.FileName = "cmd.exe"; // or your preferred shell
+                process.StartInfo.Arguments = "/c " + receivedData; // "/c" to run the command and exit
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                // Send the output of the command back to the client
+                byte[] responseBytes = Encoding.UTF8.GetBytes(output);
                 clientSocket.Send(responseBytes);
             }
 
@@ -117,7 +144,7 @@ public partial class MainWindow : Gtk.Window
         } 
         catch (Exception ex)
         {
-            lbConsole.Text = "Failed to launch Client.exe: " + ex.Message;
+            lbConsole.Text += "Failed to launch Client.exe: " + ex.Message + "\n";
         }
     }
 
