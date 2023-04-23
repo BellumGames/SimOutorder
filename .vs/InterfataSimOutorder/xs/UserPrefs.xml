@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{9DCCA1DC-2293-47D6-A7CB-4AD27DD93954}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Client PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Server/Program.cs">
     <Files>
       <File FileName="Server/Program.cs" Line="1" Column="1" />
-      <File FileName="Server/MainWindow.cs" Line="50" Column="27" />
+      <File FileName="Server/MainWindow.cs" Line="117" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,7 +12,7 @@
           <Node name="InterfataSimOutorder" expanded="True">
             <Node name="Client" expanded="True" />
             <Node name="Server" expanded="True">
-              <Node name="MainWindow.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
