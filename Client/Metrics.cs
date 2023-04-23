@@ -125,9 +125,7 @@ namespace Client
             data.rataHitIL2 = Math.Round(il2Hit / il2Acc * 100, 2);
             data.rataHitDTLB = Math.Round(dtlbHit / dtlbAcc * 100, 2);
             data.rataHitITLB = Math.Round(itlbHit / itlbAcc * 100, 2);
-            Console.WriteLine(data.rataHitDL1);
             return data;
-
         }
     }
 }
