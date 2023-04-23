@@ -2,9 +2,9 @@ sim-outorder: SimpleScalar/PISA Tool Set version 3.0 of November, 2000.
 Copyright (c) 1994-2000 by Todd M. Austin.  All Rights Reserved.
 This version of SimpleScalar is licensed for academic non-commercial use only.
 
-sim: command line: ./sim-outorder -redir:sim results/simulation.txt -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss 
+sim: command line: ./sim-outorder -redir:sim results/simulation.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss 
 
-sim: simulation started @ Sat Apr 22 20:28:45 2023, options follow:
+sim: simulation started @ Sun Apr 23 15:39:40 2023, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -20,7 +20,7 @@ latency of all pipeline operations.
 -seed                       1 # random number generator seed (0 for timer seed)
 # -q                    false # initialize and terminate immediately
 # -chkpt               <null> # restore EIO trace execution from <fname>
-# -redir:sim     results/simulation.txt # redirect simulator output to file (non-interactive only)
+# -redir:sim     results/simulation.res # redirect simulator output to file (non-interactive only)
 # -redir:prog    results/applu_progout.res # redirect simulated program output to file
 -nice                       0 # simulator scheduling priority
 -max:inst               10000 # maximum number of inst's to execute
