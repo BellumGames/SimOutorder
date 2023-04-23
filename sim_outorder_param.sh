@@ -39,7 +39,6 @@ latency of all pipeline operations.
 -bpred:ras       <int>            #            8 # return address stack size (0 for no return stack)
 -bpred:btb       <int list...>    # 512 4 # BTB config (<num_sets> <associativity>)
 -bpred:spec_update <string>         #       <null> # speculative predictors update in {ID|WB} (default non-spec)
-
 -decode:width    <int>            #            4 # instruction decode B/W (insts/cycle)
 -issue:width     <int>            #            4 # instruction issue B/W (insts/cycle)
 -issue:inorder   <true|false>     #        false # run pipeline with in-order issue
@@ -55,18 +54,21 @@ latency of all pipeline operations.
 -cache:il1lat    <int>            #            1 # l1 instruction cache hit latency (in cycles)
 -cache:il2       <string>         #          dl2 # l2 instruction cache config, i.e., {<config>|dl2|none}
 -cache:il2lat    <int>            #            6 # l2 instruction cache hit latency (in cycles)
+-tlb:itlb        <string>         # itlb:16:4096:4:l # instruction TLB config, i.e., {<config>|none}
+-tlb:dtlb        <string>         # dtlb:32:4096:4:l # data TLB config, i.e., {<config>|none}
+-tlb:lat         <int>            #           30 # inst/data TLB miss latency (in cycles)
+
 -cache:flush     <true|false>     #        false # flush caches on system calls
 -cache:icompress <true|false>     #        false # convert 64-bit inst addresses to 32-bit inst equivalents
 -mem:lat         <int list...>    # 18 2 # memory access latency (<first_chunk> <inter_chunk>)
 -mem:width       <int>            #            8 # memory access bus width (in bytes)
--tlb:itlb        <string>         # itlb:16:4096:4:l # instruction TLB config, i.e., {<config>|none}
--tlb:dtlb        <string>         # dtlb:32:4096:4:l # data TLB config, i.e., {<config>|none}
--tlb:lat         <int>            #           30 # inst/data TLB miss latency (in cycles)
+
 -res:ialu        <int>            #            4 # total number of integer ALU's available
 -res:imult       <int>            #            1 # total number of integer multiplier/dividers available
 -res:memport     <int>            #            2 # total number of memory system ports available (to CPU)
 -res:fpalu       <int>            #            4 # total number of floating point ALU's available
 -res:fpmult      <int>            #            1 # total number of floating point multiplier/dividers available
+
 -pcstat          <string list...> #       <null> # profile stat(s) against text addr's (mult uses ok)
 -bugcompat       <true|false>     #        false # operate in backward-compatible bugs mode (for testing only)
 

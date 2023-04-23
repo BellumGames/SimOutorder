@@ -8,7 +8,7 @@
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="1210 630">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Title" translatable="yes">Server</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">3</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
@@ -17,17 +17,6 @@
         <property name="MemberName" />
         <property name="Tooltip" translatable="yes" />
         <property name="HasWindow">False</property>
-        <child>
-          <widget class="Gtk.Label" id="label1">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Server</property>
-            <property name="Justify">Center</property>
-          </widget>
-          <packing>
-            <property name="X">320</property>
-            <property name="Y">8</property>
-          </packing>
-        </child>
         <child>
           <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
@@ -84,6 +73,7 @@
         <child>
           <widget class="Gtk.Button" id="btnSimulate">
             <property name="MemberName" />
+            <property name="Sensitive">False</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Simulate</property>
@@ -487,6 +477,1357 @@ WB</property>
             <property name="Y">202</property>
           </packing>
         </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkDecode">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with decode</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkDecode" />
+          </widget>
+          <packing>
+            <property name="X">223</property>
+            <property name="Y">97</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinDecodeWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">266</property>
+            <property name="Y">122</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbDecodeWidth">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Width:</property>
+          </widget>
+          <packing>
+            <property name="X">223</property>
+            <property name="Y">125</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinCommitWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">315</property>
+            <property name="Y">173</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkCommit">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with Commit</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkCommit" />
+          </widget>
+          <packing>
+            <property name="X">217</property>
+            <property name="Y">154</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkIssue">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with isssue</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkIssue" />
+          </widget>
+          <packing>
+            <property name="X">14</property>
+            <property name="Y">371</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbIssue">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Issue option:</property>
+          </widget>
+          <packing>
+            <property name="X">117</property>
+            <property name="Y">372</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboIssue">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">width
+inorder
+wrongpath</property>
+            <property name="Active">0</property>
+            <signal name="Changed" handler="OnComboIssue" />
+          </widget>
+          <packing>
+            <property name="X">199</property>
+            <property name="Y">365</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbIssueWidth">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Issue Width:</property>
+          </widget>
+          <packing>
+            <property name="X">17</property>
+            <property name="Y">403</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinIssueWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">98</property>
+            <property name="Y">399</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboIssueInorder">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">false
+true</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">101</property>
+            <property name="Y">432</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbIssueInorder">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Issue Inorder:</property>
+          </widget>
+          <packing>
+            <property name="X">13</property>
+            <property name="Y">438</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbCommitWidth">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Commit Width:</property>
+          </widget>
+          <packing>
+            <property name="X">219</property>
+            <property name="Y">180</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbIssueWrongPath">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Wrong Path:</property>
+          </widget>
+          <packing>
+            <property name="X">176</property>
+            <property name="Y">440</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboIssueWrongPath">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">true
+false</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">253</property>
+            <property name="Y">432</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkRuu">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with ruu</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkRuu" />
+          </widget>
+          <packing>
+            <property name="X">12</property>
+            <property name="Y">479</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinRuuSize">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">16</property>
+          </widget>
+          <packing>
+            <property name="X">159</property>
+            <property name="Y">476</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkLsq">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with lsq</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkLsq" />
+          </widget>
+          <packing>
+            <property name="X">12</property>
+            <property name="Y">509</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbRuuSize">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Ruu Size:</property>
+          </widget>
+          <packing>
+            <property name="X">94</property>
+            <property name="Y">480</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLsqSize">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">9000000000</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">8</property>
+          </widget>
+          <packing>
+            <property name="X">159</property>
+            <property name="Y">508</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLsqSize">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Lsq Size:</property>
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">511</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkDL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with Data Cache L1</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkDL1" />
+          </widget>
+          <packing>
+            <property name="X">453</property>
+            <property name="Y">47</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsDL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">454</property>
+            <property name="Y">75</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsDL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">128</property>
+          </widget>
+          <packing>
+            <property name="X">553</property>
+            <property name="Y">71</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeDL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">32</property>
+          </widget>
+          <packing>
+            <property name="X">553</property>
+            <property name="Y">103</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityDL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">552</property>
+            <property name="Y">135</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementDL1">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">537</property>
+            <property name="Y">168</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbConsole">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Console Label</property>
+          </widget>
+          <packing>
+            <property name="X">456</property>
+            <property name="Y">17</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkDL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with Data Cache L2</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkDL2" />
+          </widget>
+          <packing>
+            <property name="X">616</property>
+            <property name="Y">45</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityDL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">724</property>
+            <property name="Y">134</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLatDL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">6</property>
+          </widget>
+          <packing>
+            <property name="X">723</property>
+            <property name="Y">202</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeDL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">64</property>
+          </widget>
+          <packing>
+            <property name="X">725</property>
+            <property name="Y">102</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsDL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1024</property>
+          </widget>
+          <packing>
+            <property name="X">725</property>
+            <property name="Y">72</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementDL2">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">707</property>
+            <property name="Y">166</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLatDL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Latency:</property>
+          </widget>
+          <packing>
+            <property name="X">662</property>
+            <property name="Y">205</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementDL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">622</property>
+            <property name="Y">174</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityDL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">639</property>
+            <property name="Y">138</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeDL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Block Size:</property>
+          </widget>
+          <packing>
+            <property name="X">656</property>
+            <property name="Y">105</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsDL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">620</property>
+            <property name="Y">77</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLatDL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1</property>
+          </widget>
+          <packing>
+            <property name="X">555</property>
+            <property name="Y">206</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLatDL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Latency:</property>
+          </widget>
+          <packing>
+            <property name="X">497</property>
+            <property name="Y">208</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementDL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">454</property>
+            <property name="Y">173</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityDL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">469</property>
+            <property name="Y">139</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeDL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Block Size:</property>
+          </widget>
+          <packing>
+            <property name="X">488</property>
+            <property name="Y">108</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with Instruction Cache L1</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkIL1" />
+          </widget>
+          <packing>
+            <property name="X">435</property>
+            <property name="Y">241</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">512</property>
+          </widget>
+          <packing>
+            <property name="X">552</property>
+            <property name="Y">265</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">32</property>
+          </widget>
+          <packing>
+            <property name="X">551</property>
+            <property name="Y">297</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1</property>
+          </widget>
+          <packing>
+            <property name="X">550</property>
+            <property name="Y">330</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementIL1">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">534</property>
+            <property name="Y">361</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLatIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1</property>
+          </widget>
+          <packing>
+            <property name="X">549</property>
+            <property name="Y">402</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsIL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">449</property>
+            <property name="Y">267</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeIL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Block Size:</property>
+          </widget>
+          <packing>
+            <property name="X">483</property>
+            <property name="Y">300</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityIL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">467</property>
+            <property name="Y">334</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementIL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">446</property>
+            <property name="Y">368</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLatIL1">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Latency:</property>
+          </widget>
+          <packing>
+            <property name="X">492</property>
+            <property name="Y">404</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkUnifiedIL1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">Unified Cache</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnUnifiedIL1" />
+          </widget>
+          <packing>
+            <property name="X">495</property>
+            <property name="Y">432</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with Instruction Cache L2</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkIL2" />
+          </widget>
+          <packing>
+            <property name="X">627</property>
+            <property name="Y">240</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">1024</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">262</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">64</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">294</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">326</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementIL2">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">730</property>
+            <property name="Y">358</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLatIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">6</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">396</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkUnifiedIL2">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">Unified Cache</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnUnifiedIL2" />
+          </widget>
+          <packing>
+            <property name="X">692</property>
+            <property name="Y">427</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsIL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">644</property>
+            <property name="Y">266</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeIL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">BlockSize:</property>
+          </widget>
+          <packing>
+            <property name="X">681</property>
+            <property name="Y">297</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityIL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">659</property>
+            <property name="Y">328</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementIL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">643</property>
+            <property name="Y">363</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLatIL2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Latency:</property>
+          </widget>
+          <packing>
+            <property name="X">686</property>
+            <property name="Y">397</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsDTLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">790</property>
+            <property name="Y">76</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkDTLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with TLB Data</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkDTLB" />
+          </widget>
+          <packing>
+            <property name="X">823</property>
+            <property name="Y">41</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsDTLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">32</property>
+          </widget>
+          <packing>
+            <property name="X">888</property>
+            <property name="Y">72</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeDTLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4096</property>
+          </widget>
+          <packing>
+            <property name="X">886</property>
+            <property name="Y">103</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeDTLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Block Size:</property>
+          </widget>
+          <packing>
+            <property name="X">819</property>
+            <property name="Y">106</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityDTLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">884</property>
+            <property name="Y">134</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityDTLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">798</property>
+            <property name="Y">137</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementDTLB">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">868</property>
+            <property name="Y">165</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementDTLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">785</property>
+            <property name="Y">172</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbLatTLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">TLB Latency:</property>
+          </widget>
+          <packing>
+            <property name="X">792</property>
+            <property name="Y">207</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinLatTLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">30</property>
+          </widget>
+          <packing>
+            <property name="X">882</property>
+            <property name="Y">201</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkITLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with TLB Instruction</property>
+            <property name="Active">True</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkITLB" />
+          </widget>
+          <packing>
+            <property name="X">816</property>
+            <property name="Y">240</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbNumSetsITLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Number of Sets:</property>
+          </widget>
+          <packing>
+            <property name="X">812</property>
+            <property name="Y">266</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinNumSetsITLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">16</property>
+          </widget>
+          <packing>
+            <property name="X">910</property>
+            <property name="Y">261</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinBlockSizeITLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4096</property>
+          </widget>
+          <packing>
+            <property name="X">909</property>
+            <property name="Y">292</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinAssociativityITLB">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">4</property>
+          </widget>
+          <packing>
+            <property name="X">908</property>
+            <property name="Y">323</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboReplacementITLB">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">LRU
+FIFO
+RAND</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">892</property>
+            <property name="Y">354</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbBlockSizeITLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Block Size:</property>
+          </widget>
+          <packing>
+            <property name="X">843</property>
+            <property name="Y">295</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbAssociativityITLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Associativity:</property>
+          </widget>
+          <packing>
+            <property name="X">826</property>
+            <property name="Y">326</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbReplacementITLB">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Replacement:</property>
+          </widget>
+          <packing>
+            <property name="X">809</property>
+            <property name="Y">360</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboCacheFlush">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">false
+true</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">549</property>
+            <property name="Y">473</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboCacheIcompress">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">false
+true</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">549</property>
+            <property name="Y">516</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">8</property>
+          </widget>
+          <packing>
+            <property name="X">552</property>
+            <property name="Y">564</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkCacheFlush">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with cache:flush</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkCacheFlush" />
+          </widget>
+          <packing>
+            <property name="X">426</property>
+            <property name="Y">480</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkCacheIcompress">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with cache:icompress</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkCacheIcompress" />
+          </widget>
+          <packing>
+            <property name="X">393</property>
+            <property name="Y">521</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkMemWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with mem:width</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnMemWidth" />
+          </widget>
+          <packing>
+            <property name="X">425</property>
+            <property name="Y">566</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkMemLat">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with mem:lat</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnMemLat" />
+          </widget>
+          <packing>
+            <property name="X">655</property>
+            <property name="Y">478</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbMemLatInterChunk">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Inter Chunk:</property>
+          </widget>
+          <packing>
+            <property name="X">664</property>
+            <property name="Y">545</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbMemLatFirstChunk">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">First Chunk:</property>
+          </widget>
+          <packing>
+            <property name="X">665</property>
+            <property name="Y">510</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemLatInterChunk">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">2</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">540</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemLatFirstChunk">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">18</property>
+          </widget>
+          <packing>
+            <property name="X">748</property>
+            <property name="Y">506</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Window" id="InterfataSimOutorder.SecondaryWindow" design-size="400 300">
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">Results for Client number #</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="BorderWidth">6</property>
+    <child>
+      <widget class="Gtk.Fixed" id="fixed1">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
       </widget>
     </child>
   </widget>
