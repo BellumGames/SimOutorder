@@ -21,9 +21,8 @@ namespace Client
         public double rataInlocuireDTLB { get; set; }
         public double rataInlocuireITLB { get; set; }
 
-        private readonly Metrics data;
+        private readonly Metrics data = new Metrics();
 
-        public Metrics() { }
 
         public Metrics parseString(string simulation)
         {
