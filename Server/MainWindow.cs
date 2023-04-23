@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 using Gtk;
 using InterfataSimOutorder;
 
@@ -64,7 +68,45 @@ public partial class MainWindow : Gtk.Window
     protected void OnBtnStartServer(object sender, EventArgs e)
     {
         btnSimulate.Sensitive = true;
+        Thread th = new Thread(Net);
+        th.Start();
         StartClients();
+    }
+
+    protected void Net() 
+    {
+        // Create a server Socket
+        System.Net.Sockets.Socket serverSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
+        serverSocket.Bind(endPoint);
+        serverSocket.Listen(10);
+
+        Console.WriteLine("Server started. Waiting for clients...");
+
+        while (true)
+        {
+            // Accept incoming client connections
+            System.Net.Sockets.Socket clientSocket = serverSocket.Accept();
+            Console.WriteLine("Client connected: " + clientSocket.RemoteEndPoint);
+
+            // Handle client communication in a separate thread
+            // (you can use Task.Run or other threading mechanisms)
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = clientSocket.Receive(buffer)) > 0)
+            {
+                string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                Console.WriteLine("Received data from client: " + receivedData);
+
+                // Send response back to client
+                string response = "Hello from server!";
+                byte[] responseBytes = Encoding.UTF8.GetBytes(response);
+                clientSocket.Send(responseBytes);
+            }
+
+            // Close the client socket
+            clientSocket.Close();
+        }
     }
 
     protected void StartClients() 
@@ -89,7 +131,7 @@ public partial class MainWindow : Gtk.Window
     {
         foreach(var item in benchmarks) 
         { 
-            string temp = command + $"-redir:sim results/{item.Key}_simout.res -redir:prog results/{item.Key}_progout.res {item.Value} && exit";
+            string temp = command + $"-redir:sim results/{item.Key}_simout.res {item.Value} && exit";
             commands.Add(temp);
         }
     }
