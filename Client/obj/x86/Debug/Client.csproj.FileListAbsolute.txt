@@ -7,3 +7,4 @@
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Debug/Client.csproj.CopyComplete
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Debug/Client.exe
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Debug/Client.pdb
+/home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Debug/Client.csproj.AssemblyReference.cache
