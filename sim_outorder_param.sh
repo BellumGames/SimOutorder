@@ -46,7 +46,6 @@ latency of all pipeline operations.
 -commit:width    <int>            #            4 # instruction commit B/W (insts/cycle)
 -ruu:size        <int>            #           16 # register update unit (RUU) size
 -lsq:size        <int>            #            8 # load/store queue (LSQ) size
-
 -cache:dl1       <string>         # dl1:128:32:4:l # l1 data cache config, i.e., {<config>|none}
 -cache:dl1lat    <int>            #            1 # l1 data cache hit latency (in cycles)
 -cache:dl2       <string>         # ul2:1024:64:4:l # l2 data cache config, i.e., {<config>|none}
@@ -60,9 +59,7 @@ latency of all pipeline operations.
 -tlb:lat         <int>            #           30 # inst/data TLB miss latency (in cycles)
 
 -cache:flush     <true|false>     #        false # flush caches on system calls
-
 -cache:icompress <true|false>     #        false # convert 64-bit inst addresses to 32-bit inst equivalents
-
 -mem:lat         <int list...>    # 18 2 # memory access latency (<first_chunk> <inter_chunk>)
 -mem:width       <int>            #            8 # memory access bus width (in bytes)
 

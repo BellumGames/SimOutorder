@@ -73,6 +73,7 @@
         <child>
           <widget class="Gtk.Button" id="btnSimulate">
             <property name="MemberName" />
+            <property name="Sensitive">False</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Simulate</property>
@@ -1656,6 +1657,163 @@ RAND</property>
           <packing>
             <property name="X">809</property>
             <property name="Y">360</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboCacheFlush">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">false
+true</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">549</property>
+            <property name="Y">473</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ComboBox" id="comboCacheIcompress">
+            <property name="MemberName" />
+            <property name="IsTextCombo">True</property>
+            <property name="Items" translatable="yes">false
+true</property>
+            <property name="Active">0</property>
+          </widget>
+          <packing>
+            <property name="X">549</property>
+            <property name="Y">516</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">8</property>
+          </widget>
+          <packing>
+            <property name="X">552</property>
+            <property name="Y">564</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkCacheFlush">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with cache:flush</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkCacheFlush" />
+          </widget>
+          <packing>
+            <property name="X">426</property>
+            <property name="Y">480</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkCacheIcompress">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with cache:icompress</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnChkCacheIcompress" />
+          </widget>
+          <packing>
+            <property name="X">393</property>
+            <property name="Y">521</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkMemWidth">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with mem:width</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnMemWidth" />
+          </widget>
+          <packing>
+            <property name="X">425</property>
+            <property name="Y">566</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.CheckButton" id="chkMemLat">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Label" translatable="yes">with mem:lat</property>
+            <property name="DrawIndicator">True</property>
+            <property name="HasLabel">True</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Toggled" handler="OnMemLat" />
+          </widget>
+          <packing>
+            <property name="X">655</property>
+            <property name="Y">478</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbMemLatInterChunk">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Inter Chunk:</property>
+          </widget>
+          <packing>
+            <property name="X">664</property>
+            <property name="Y">545</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="lbMemLatFirstChunk">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">First Chunk:</property>
+          </widget>
+          <packing>
+            <property name="X">665</property>
+            <property name="Y">510</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemLatInterChunk">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">2</property>
+          </widget>
+          <packing>
+            <property name="X">746</property>
+            <property name="Y">540</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.SpinButton" id="spinMemLatFirstChunk">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Upper">8192</property>
+            <property name="PageIncrement">10</property>
+            <property name="PageSize">100000</property>
+            <property name="StepIncrement">1</property>
+            <property name="ClimbRate">1</property>
+            <property name="Numeric">True</property>
+            <property name="Value">18</property>
+          </widget>
+          <packing>
+            <property name="X">748</property>
+            <property name="Y">506</property>
           </packing>
         </child>
       </widget>

@@ -249,6 +249,28 @@ public partial class MainWindow
 
 	private global::Gtk.Label lbReplacementITLB;
 
+	private global::Gtk.ComboBox comboCacheFlush;
+
+	private global::Gtk.ComboBox comboCacheIcompress;
+
+	private global::Gtk.SpinButton spinMemWidth;
+
+	private global::Gtk.CheckButton chkCacheFlush;
+
+	private global::Gtk.CheckButton chkCacheIcompress;
+
+	private global::Gtk.CheckButton chkMemWidth;
+
+	private global::Gtk.CheckButton chkMemLat;
+
+	private global::Gtk.Label lbMemLatInterChunk;
+
+	private global::Gtk.Label lbMemLatFirstChunk;
+
+	private global::Gtk.SpinButton spinMemLatInterChunk;
+
+	private global::Gtk.SpinButton spinMemLatFirstChunk;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -304,6 +326,7 @@ public partial class MainWindow
 		w4.Y = 56;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.btnSimulate = new global::Gtk.Button();
+		this.btnSimulate.Sensitive = false;
 		this.btnSimulate.CanFocus = true;
 		this.btnSimulate.Name = "btnSimulate";
 		this.btnSimulate.UseUnderline = true;
@@ -1528,6 +1551,125 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w122 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbReplacementITLB]));
 		w122.X = 809;
 		w122.Y = 360;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.comboCacheFlush = global::Gtk.ComboBox.NewText();
+		this.comboCacheFlush.AppendText(global::Mono.Unix.Catalog.GetString("false"));
+		this.comboCacheFlush.AppendText(global::Mono.Unix.Catalog.GetString("true"));
+		this.comboCacheFlush.Name = "comboCacheFlush";
+		this.comboCacheFlush.Active = 0;
+		this.fixed1.Add(this.comboCacheFlush);
+		global::Gtk.Fixed.FixedChild w123 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.comboCacheFlush]));
+		w123.X = 549;
+		w123.Y = 473;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.comboCacheIcompress = global::Gtk.ComboBox.NewText();
+		this.comboCacheIcompress.AppendText(global::Mono.Unix.Catalog.GetString("false"));
+		this.comboCacheIcompress.AppendText(global::Mono.Unix.Catalog.GetString("true"));
+		this.comboCacheIcompress.Name = "comboCacheIcompress";
+		this.comboCacheIcompress.Active = 0;
+		this.fixed1.Add(this.comboCacheIcompress);
+		global::Gtk.Fixed.FixedChild w124 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.comboCacheIcompress]));
+		w124.X = 549;
+		w124.Y = 516;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinMemWidth = new global::Gtk.SpinButton(0D, 8192D, 1D);
+		this.spinMemWidth.CanFocus = true;
+		this.spinMemWidth.Name = "spinMemWidth";
+		this.spinMemWidth.Adjustment.PageIncrement = 10D;
+		this.spinMemWidth.Adjustment.PageSize = 100000D;
+		this.spinMemWidth.ClimbRate = 1D;
+		this.spinMemWidth.Numeric = true;
+		this.spinMemWidth.Value = 8D;
+		this.fixed1.Add(this.spinMemWidth);
+		global::Gtk.Fixed.FixedChild w125 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinMemWidth]));
+		w125.X = 552;
+		w125.Y = 564;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkCacheFlush = new global::Gtk.CheckButton();
+		this.chkCacheFlush.CanFocus = true;
+		this.chkCacheFlush.Name = "chkCacheFlush";
+		this.chkCacheFlush.Label = global::Mono.Unix.Catalog.GetString("with cache:flush");
+		this.chkCacheFlush.DrawIndicator = true;
+		this.chkCacheFlush.UseUnderline = true;
+		this.fixed1.Add(this.chkCacheFlush);
+		global::Gtk.Fixed.FixedChild w126 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkCacheFlush]));
+		w126.X = 426;
+		w126.Y = 480;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkCacheIcompress = new global::Gtk.CheckButton();
+		this.chkCacheIcompress.CanFocus = true;
+		this.chkCacheIcompress.Name = "chkCacheIcompress";
+		this.chkCacheIcompress.Label = global::Mono.Unix.Catalog.GetString("with cache:icompress");
+		this.chkCacheIcompress.DrawIndicator = true;
+		this.chkCacheIcompress.UseUnderline = true;
+		this.fixed1.Add(this.chkCacheIcompress);
+		global::Gtk.Fixed.FixedChild w127 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkCacheIcompress]));
+		w127.X = 393;
+		w127.Y = 521;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkMemWidth = new global::Gtk.CheckButton();
+		this.chkMemWidth.CanFocus = true;
+		this.chkMemWidth.Name = "chkMemWidth";
+		this.chkMemWidth.Label = global::Mono.Unix.Catalog.GetString("with mem:width");
+		this.chkMemWidth.DrawIndicator = true;
+		this.chkMemWidth.UseUnderline = true;
+		this.fixed1.Add(this.chkMemWidth);
+		global::Gtk.Fixed.FixedChild w128 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkMemWidth]));
+		w128.X = 425;
+		w128.Y = 566;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.chkMemLat = new global::Gtk.CheckButton();
+		this.chkMemLat.CanFocus = true;
+		this.chkMemLat.Name = "chkMemLat";
+		this.chkMemLat.Label = global::Mono.Unix.Catalog.GetString("with mem:lat");
+		this.chkMemLat.DrawIndicator = true;
+		this.chkMemLat.UseUnderline = true;
+		this.fixed1.Add(this.chkMemLat);
+		global::Gtk.Fixed.FixedChild w129 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.chkMemLat]));
+		w129.X = 655;
+		w129.Y = 478;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbMemLatInterChunk = new global::Gtk.Label();
+		this.lbMemLatInterChunk.Name = "lbMemLatInterChunk";
+		this.lbMemLatInterChunk.LabelProp = global::Mono.Unix.Catalog.GetString("Inter Chunk:");
+		this.fixed1.Add(this.lbMemLatInterChunk);
+		global::Gtk.Fixed.FixedChild w130 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbMemLatInterChunk]));
+		w130.X = 664;
+		w130.Y = 545;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbMemLatFirstChunk = new global::Gtk.Label();
+		this.lbMemLatFirstChunk.Name = "lbMemLatFirstChunk";
+		this.lbMemLatFirstChunk.LabelProp = global::Mono.Unix.Catalog.GetString("First Chunk:");
+		this.fixed1.Add(this.lbMemLatFirstChunk);
+		global::Gtk.Fixed.FixedChild w131 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbMemLatFirstChunk]));
+		w131.X = 665;
+		w131.Y = 510;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinMemLatInterChunk = new global::Gtk.SpinButton(0D, 8192D, 1D);
+		this.spinMemLatInterChunk.CanFocus = true;
+		this.spinMemLatInterChunk.Name = "spinMemLatInterChunk";
+		this.spinMemLatInterChunk.Adjustment.PageIncrement = 10D;
+		this.spinMemLatInterChunk.Adjustment.PageSize = 100000D;
+		this.spinMemLatInterChunk.ClimbRate = 1D;
+		this.spinMemLatInterChunk.Numeric = true;
+		this.spinMemLatInterChunk.Value = 2D;
+		this.fixed1.Add(this.spinMemLatInterChunk);
+		global::Gtk.Fixed.FixedChild w132 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinMemLatInterChunk]));
+		w132.X = 746;
+		w132.Y = 540;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.spinMemLatFirstChunk = new global::Gtk.SpinButton(0D, 8192D, 1D);
+		this.spinMemLatFirstChunk.CanFocus = true;
+		this.spinMemLatFirstChunk.Name = "spinMemLatFirstChunk";
+		this.spinMemLatFirstChunk.Adjustment.PageIncrement = 10D;
+		this.spinMemLatFirstChunk.Adjustment.PageSize = 100000D;
+		this.spinMemLatFirstChunk.ClimbRate = 1D;
+		this.spinMemLatFirstChunk.Numeric = true;
+		this.spinMemLatFirstChunk.Value = 18D;
+		this.fixed1.Add(this.spinMemLatFirstChunk);
+		global::Gtk.Fixed.FixedChild w133 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.spinMemLatFirstChunk]));
+		w133.X = 748;
+		w133.Y = 506;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
@@ -1558,5 +1700,9 @@ public partial class MainWindow
 		this.chkUnifiedIL2.Toggled += new global::System.EventHandler(this.OnUnifiedIL2);
 		this.chkDTLB.Toggled += new global::System.EventHandler(this.OnChkDTLB);
 		this.chkITLB.Toggled += new global::System.EventHandler(this.OnChkITLB);
+		this.chkCacheFlush.Toggled += new global::System.EventHandler(this.OnChkCacheFlush);
+		this.chkCacheIcompress.Toggled += new global::System.EventHandler(this.OnChkCacheIcompress);
+		this.chkMemWidth.Toggled += new global::System.EventHandler(this.OnMemWidth);
+		this.chkMemLat.Toggled += new global::System.EventHandler(this.OnMemLat);
 	}
 }

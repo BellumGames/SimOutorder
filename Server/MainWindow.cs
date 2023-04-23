@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Gtk;
 using InterfataSimOutorder;
 
 public partial class MainWindow : Gtk.Window
 {
     public static string command = "./sim-outorder ";
+    public static Dictionary<string, string> benchmarks = new Dictionary<string, string>();
+    public static List<string> commands = new List<string>();
+    public static string PATH_CLIENT = @"..\..\..\Client\bin\Debug\Client.exe";
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
         Init();
+        InitDic();
     }
 
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
@@ -33,6 +39,22 @@ public partial class MainWindow : Gtk.Window
         IL2();
         DTLB();
         ITLB();
+        CacheFlush();
+        CacheIcompress();
+        MemLat();
+        MemWidth();
+    }
+
+    protected void InitDic() 
+    {
+        benchmarks.Add("applu", "benchmarks/applu.ss < benchmarks/applu.in");
+        benchmarks.Add("apsi", "benchmarks/apsi.ss < benchmarks/apsi.in");
+        benchmarks.Add("hydro2d", "benchmarks/hydro2d.ss < benchmarks/hydro2d.in");
+        benchmarks.Add("go", "benchmarks/go.ss < benchmarks/9stone21.in");
+        benchmarks.Add("su2cor", "benchmarks/su2cor.ss < benchmarks/su2cor.in");
+        benchmarks.Add("swim", "benchmarks/swim.ss < benchmarks/swim2.in");
+        benchmarks.Add("tomcatv", "benchmarks/tomcatv.ss < benchmarks/tomcatv.in");
+        benchmarks.Add("cc1", "benchmarks/cc1.ss < benchmarks/1stmt.i");
     }
 
     protected void OnBtnHelp(object sender, EventArgs e)
@@ -41,11 +63,35 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnBtnStartServer(object sender, EventArgs e)
     {
+        btnSimulate.Sensitive = true;
+        StartClients();
+    }
+
+    protected void StartClients() 
+    {
+        try 
+        {
+            Process.Start(PATH_CLIENT);
+        } 
+        catch (Exception ex)
+        {
+            lbConsole.Text = "Failed to launch Client.exe: " + ex.Message;
+        }
     }
 
     protected void OnBtnSimulate(object sender, EventArgs e)
     {
         PopulateCommand();
+        PreparingCommand();
+    }
+
+    protected void PreparingCommand() 
+    {
+        foreach(var item in benchmarks) 
+        { 
+            string temp = command + $"-redir:sim results/{item.Key}_simout.res -redir:prog results/{item.Key}_progout.res {item.Value} && exit";
+            commands.Add(temp);
+        }
     }
 
     protected void PopulateCommand()
@@ -118,6 +164,22 @@ public partial class MainWindow : Gtk.Window
             command += $"-lsq:size {spinLsqSize.Value} ";
         }
         CacheConfig();
+        if(chkCacheFlush.Active == true) 
+        {
+            command += $"-cache:flush {comboCacheFlush.ActiveText} ";
+        }
+        if(chkCacheIcompress.Active == true) 
+        {
+            command += $"-cache:icompress {comboCacheIcompress.ActiveText} ";
+        }
+        if (chkMemLat.Active) 
+        {
+            command += $"-mem:lat {spinMemLatFirstChunk.Value} {spinMemLatInterChunk.Value} ";
+        }
+        if(chkMemWidth.Active == true) 
+        {
+            command += $"-mem:width {spinMemWidth.Value} "; 
+        }
         lbConsole.Text = command;
     }
 
@@ -315,6 +377,19 @@ public partial class MainWindow : Gtk.Window
         spinBlockSizeITLB.Value = 4096;
         spinAssociativityITLB.Value = 4;
         comboReplacementITLB.Active = 0;
+
+        chkCacheFlush.Active = false;
+        comboCacheFlush.Active = 0;
+
+        chkCacheIcompress.Active = false;
+        comboCacheIcompress.Active = 0;
+
+        chkMemLat.Active = false;
+        spinMemLatFirstChunk.Value = 18;
+        spinMemLatInterChunk.Value = 2;
+
+        chkMemWidth.Active = false;
+        spinMemWidth.Value = 0;
     }
 
     protected void OnChkFetch(object sender, EventArgs e)
@@ -980,6 +1055,82 @@ public partial class MainWindow : Gtk.Window
         {
             lbLatTLB.Visible = false;
             spinLatTLB.Visible = false;
+        }
+    }
+
+    protected void OnChkCacheFlush(object sender, EventArgs e)
+    {
+        CacheFlush();
+    }
+
+    protected void CacheFlush() 
+    {
+        if(chkCacheFlush.Active == true) 
+        {
+            comboCacheFlush.Visible = true;
+        }
+        else 
+        {
+            comboCacheFlush.Visible = false;
+        }
+    }
+
+    protected void OnChkCacheIcompress(object sender, EventArgs e)
+    {
+        CacheIcompress();
+    }
+
+    protected void CacheIcompress() 
+    {
+        if (chkCacheIcompress.Active == true)
+        {
+            comboCacheIcompress.Visible = true;
+        }
+        else 
+        {
+            comboCacheIcompress.Visible = false;
+        }
+    }
+
+    protected void OnMemLat(object sender, EventArgs e)
+    {
+        MemLat();
+    }
+
+    protected void MemLat() 
+    {
+        if(chkMemLat.Active == true) 
+        {
+            lbMemLatFirstChunk.Visible = true;
+            lbMemLatInterChunk.Visible = true;
+
+            spinMemLatFirstChunk.Visible = true;
+            spinMemLatInterChunk.Visible = true; 
+        }
+        else 
+        {
+            lbMemLatFirstChunk.Visible = false;
+            lbMemLatInterChunk.Visible = false;
+
+            spinMemLatFirstChunk.Visible = false;
+            spinMemLatInterChunk.Visible = false;
+        }
+    }
+
+    protected void OnMemWidth(object sender, EventArgs e)
+    {
+        MemWidth();
+    }
+
+    protected void MemWidth()
+    { 
+        if(chkMemWidth.Active == true) 
+        {
+            spinMemWidth.Visible = true;
+        }
+        else 
+        {
+            spinMemWidth.Visible = false;
         }
     }
 }
