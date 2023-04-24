@@ -1,11 +1,7 @@
 ﻿<Properties StartupConfiguration="{9DCCA1DC-2293-47D6-A7CB-4AD27DD93954}|Default">
   <MonoDevelop.Ide.ItemProperties.Server PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.Client PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Server/MainWindow.cs">
-    <Files>
-      <File FileName="Client/Program.cs" Line="23" Column="50" />
-      <File FileName="Server/MainWindow.cs" Line="161" Column="38" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">

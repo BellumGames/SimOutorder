@@ -17,6 +17,7 @@ public partial class MainWindow : Gtk.Window
     public static int ServerStatus = 0;
     public static Thread th = null;
     public static int i = 0;
+    public static List<string> responses = new List<string>();
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -68,6 +69,20 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnBtnHelp(object sender, EventArgs e)
     {
+        //Process.Start("help.pdf");
+    }
+
+    protected void OnBtnSeeResults(object sender, EventArgs e)
+    {
+        SeeResults();
+    }
+
+    protected void SeeResults() 
+    {
+        for(int j = 0; j < responses.Count; j++) 
+        {
+            new SecondaryWindow($"{j} {responses[j]}").Show();
+        }
     }
 
     protected void OnBtnPopulate(object sender, EventArgs e)
@@ -79,12 +94,8 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnBtnStartServer(object sender, EventArgs e)
     {
-        btnSimulate.Sensitive = true;
+        btnSeeResults.Sensitive = true;
         ServerThread();
-    }
-
-    protected void OnBtnSimulate(object sender, EventArgs e)
-    {
     }
 
     protected void ServerThread() 
@@ -100,9 +111,41 @@ public partial class MainWindow : Gtk.Window
         {
             th.Abort();
             ServerStatus = 0;
+            i = 0;
         }
     }
 
+    protected void Net() 
+    {
+        // Create a server Socket
+        System.Net.Sockets.Socket serverSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
+        serverSocket.Bind(endPoint);
+        serverSocket.Listen(10);
+        lbConsole.Text += "Server started. Waiting for clients...\n";
+
+        while (true)
+        {
+            System.Net.Sockets.Socket clientSocket = serverSocket.Accept();
+            lbConsole.Text += "Client connected: " + clientSocket.RemoteEndPoint + "\n";
+
+            string response = commands[i];
+            byte[] responseBytes = Encoding.UTF8.GetBytes(response);
+            clientSocket.Send(responseBytes);
+            i++;
+
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = clientSocket.Receive(buffer)) > 0)
+            {
+                string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                lbConsole.Text += "Received data from client: " + receivedData + "\n";
+                responses.Add(receivedData);
+            }
+            clientSocket.Close();
+        }
+    }
+    /*
     protected void Net() 
     {
         // Create a server Socket
@@ -138,6 +181,7 @@ public partial class MainWindow : Gtk.Window
             clientSocket.Close();
         }
     }
+    */
 
     protected void StartClients() 
     {
@@ -364,13 +408,15 @@ public partial class MainWindow : Gtk.Window
     protected void Reset()
     {
         command = "./sim-outorder ";
+        i = 0;
+        responses.Clear();
 
         if(th.IsAlive == true) 
         {
             th.Abort();
         }
         btnStartServer.Sensitive = false;
-        btnSimulate.Sensitive = false;
+        btnSeeResults.Sensitive = false;
 
         spinInstrNum.Value = 10000;
         spinFastForwardCount.Value = 0;

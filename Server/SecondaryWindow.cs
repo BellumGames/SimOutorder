@@ -3,9 +3,13 @@ namespace InterfataSimOutorder
 {
     public partial class SecondaryWindow : Gtk.Window
     {
-        public SecondaryWindow() : base(Gtk.WindowType.Toplevel)
+        public static string official;
+
+        public SecondaryWindow(string result) : base(Gtk.WindowType.Toplevel)
         {
             this.Build();
+            official = result;
+            lbResult.Text = result;
         }
     }
 }

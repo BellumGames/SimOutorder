@@ -45,6 +45,31 @@ namespace Client
 
         public static void Net()
         {
+            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
+
+            Console.WriteLine("Connecting to server...");
+            clientSocket.Connect(endPoint);
+            Console.WriteLine("Connected to server.");
+
+            // Receive response from server
+            byte[] responseBytes = new byte[1024];
+            int bytesRead = clientSocket.Receive(responseBytes);
+            responseData = Encoding.UTF8.GetString(responseBytes, 0, bytesRead);
+            Console.WriteLine("Received response from server: " + responseData);
+
+            // Send data to server
+            //string data = $"{benchmarkRulatNume} {IR} {RataHitCacheDate} {RataHitCacheInstructiuni}"
+            string data = "Hello from client!";
+            byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+            clientSocket.Send(dataBytes);
+
+            // Close the client socket
+            clientSocket.Close();
+        }
+        /*
+        public static void Net()
+        {
             // Create a client Socket
             Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
@@ -67,5 +92,6 @@ namespace Client
             // Close the client socket
             clientSocket.Close();
         }
+        */
     }
 }

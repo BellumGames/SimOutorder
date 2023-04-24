@@ -6,6 +6,8 @@ namespace InterfataSimOutorder
 	{
 		private global::Gtk.Fixed fixed1;
 
+		private global::Gtk.Label lbResult;
+
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
@@ -17,6 +19,14 @@ namespace InterfataSimOutorder
 			// Container child InterfataSimOutorder.SecondaryWindow.Gtk.Container+ContainerChild
 			this.fixed1 = new global::Gtk.Fixed();
 			this.fixed1.HasWindow = false;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.lbResult = new global::Gtk.Label();
+			this.lbResult.Name = "lbResult";
+			this.lbResult.LabelProp = global::Mono.Unix.Catalog.GetString("LABEL");
+			this.fixed1.Add(this.lbResult);
+			global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbResult]));
+			w1.X = 29;
+			w1.Y = 22;
 			this.Add(this.fixed1);
 			if ((this.Child != null))
 			{

@@ -6,7 +6,7 @@
   <import>
     <widget-library name="../bin/Debug/InterfataSimOutorder.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="1210 630">
+  <widget class="Gtk.Window" id="MainWindow" design-size="978 630">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Server</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -68,21 +68,6 @@
           <packing>
             <property name="X">74</property>
             <property name="Y">56</property>
-          </packing>
-        </child>
-        <child>
-          <widget class="Gtk.Button" id="btnSimulate">
-            <property name="MemberName" />
-            <property name="Sensitive">False</property>
-            <property name="CanFocus">True</property>
-            <property name="Type">TextOnly</property>
-            <property name="Label" translatable="yes">Simulate</property>
-            <property name="UseUnderline">True</property>
-            <signal name="Clicked" handler="OnBtnSimulate" />
-          </widget>
-          <packing>
-            <property name="X">316</property>
-            <property name="Y">64</property>
           </packing>
         </child>
         <child>
@@ -1837,6 +1822,21 @@ true</property>
             <property name="Y">101</property>
           </packing>
         </child>
+        <child>
+          <widget class="Gtk.Button" id="btnSeeResults">
+            <property name="MemberName" />
+            <property name="Sensitive">False</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">See Results</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnBtnSeeResults" />
+          </widget>
+          <packing>
+            <property name="X">312</property>
+            <property name="Y">64</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
@@ -1849,6 +1849,16 @@ true</property>
       <widget class="Gtk.Fixed" id="fixed1">
         <property name="MemberName" />
         <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Label" id="lbResult">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">LABEL</property>
+          </widget>
+          <packing>
+            <property name="X">29</property>
+            <property name="Y">22</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
