@@ -13,11 +13,12 @@ namespace InterfataSimOutorder
 			global::Stetic.Gui.Initialize(this);
 			// Widget InterfataSimOutorder.SecondaryWindow
 			this.Name = "InterfataSimOutorder.SecondaryWindow";
-			this.Title = global::Mono.Unix.Catalog.GetString("Results for Client number #");
+			this.Title = global::Mono.Unix.Catalog.GetString("Client");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			this.BorderWidth = ((uint)(6));
 			// Container child InterfataSimOutorder.SecondaryWindow.Gtk.Container+ContainerChild
 			this.fixed1 = new global::Gtk.Fixed();
+			this.fixed1.Name = "fixed1";
 			this.fixed1.HasWindow = false;
 			// Container child fixed1.Gtk.Fixed+FixedChild
 			this.lbResult = new global::Gtk.Label();

@@ -267,8 +267,6 @@ public partial class MainWindow
 
 	private global::Gtk.SpinButton spinMemLatFirstChunk;
 
-	private global::Gtk.Label lbConsole;
-
 	private global::Gtk.Button btnPopulate;
 
 	private global::Gtk.Button btnSeeResults;
@@ -283,6 +281,7 @@ public partial class MainWindow
 		this.BorderWidth = ((uint)(3));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.fixed1 = new global::Gtk.Fixed();
+		this.fixed1.Name = "fixed1";
 		this.fixed1.HasWindow = false;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.label2 = new global::Gtk.Label();
@@ -1654,23 +1653,15 @@ public partial class MainWindow
 		w131.X = 748;
 		w131.Y = 506;
 		// Container child fixed1.Gtk.Fixed+FixedChild
-		this.lbConsole = new global::Gtk.Label();
-		this.lbConsole.Name = "lbConsole";
-		this.lbConsole.LabelProp = global::Mono.Unix.Catalog.GetString("Console Label");
-		this.fixed1.Add(this.lbConsole);
-		global::Gtk.Fixed.FixedChild w132 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbConsole]));
-		w132.X = 824;
-		w132.Y = 400;
-		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.btnPopulate = new global::Gtk.Button();
 		this.btnPopulate.CanFocus = true;
 		this.btnPopulate.Name = "btnPopulate";
 		this.btnPopulate.UseUnderline = true;
 		this.btnPopulate.Label = global::Mono.Unix.Catalog.GetString("Populate");
 		this.fixed1.Add(this.btnPopulate);
-		global::Gtk.Fixed.FixedChild w133 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnPopulate]));
-		w133.X = 375;
-		w133.Y = 101;
+		global::Gtk.Fixed.FixedChild w132 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnPopulate]));
+		w132.X = 375;
+		w132.Y = 101;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.btnSeeResults = new global::Gtk.Button();
 		this.btnSeeResults.Sensitive = false;
@@ -1679,9 +1670,9 @@ public partial class MainWindow
 		this.btnSeeResults.UseUnderline = true;
 		this.btnSeeResults.Label = global::Mono.Unix.Catalog.GetString("See Results");
 		this.fixed1.Add(this.btnSeeResults);
-		global::Gtk.Fixed.FixedChild w134 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnSeeResults]));
-		w134.X = 312;
-		w134.Y = 64;
+		global::Gtk.Fixed.FixedChild w133 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnSeeResults]));
+		w133.X = 312;
+		w133.Y = 64;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
