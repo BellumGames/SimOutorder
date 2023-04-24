@@ -88,6 +88,7 @@
         <child>
           <widget class="Gtk.Button" id="btnStartServer">
             <property name="MemberName" />
+            <property name="Sensitive">False</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextOnly</property>
             <property name="Label" translatable="yes">Start Server</property>
@@ -1820,6 +1821,20 @@ true</property>
           <packing>
             <property name="X">824</property>
             <property name="Y">400</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="btnPopulate">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Populate</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnBtnPopulate" />
+          </widget>
+          <packing>
+            <property name="X">375</property>
+            <property name="Y">101</property>
           </packing>
         </child>
       </widget>

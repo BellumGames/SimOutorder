@@ -4,7 +4,7 @@ This version of SimpleScalar is licensed for academic non-commercial use only.
 
 sim: command line: ./sim-outorder -redir:sim results/simulation.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss 
 
-sim: simulation started @ Sun Apr 23 17:06:16 2023, options follow:
+sim: simulation started @ Mon Apr 24 16:17:57 2023, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -252,6 +252,6 @@ ld_target_big_endian              0 # target executable endian-ness, non-zero if
 mem.page_count                   73 # total number of pages allocated
 mem.page_mem                   292k # total size of memory pages allocated
 mem.ptab_misses                  81 # total first level page table misses
-mem.ptab_accesses           1543060 # total page table accesses
+mem.ptab_accesses           1543058 # total page table accesses
 mem.ptab_miss_rate           0.0001 # first level page table miss rate
 

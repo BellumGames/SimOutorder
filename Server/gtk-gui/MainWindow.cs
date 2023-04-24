@@ -271,6 +271,8 @@ public partial class MainWindow
 
 	private global::Gtk.Label lbConsole;
 
+	private global::Gtk.Button btnPopulate;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -281,6 +283,7 @@ public partial class MainWindow
 		this.BorderWidth = ((uint)(3));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.fixed1 = new global::Gtk.Fixed();
+		this.fixed1.Name = "fixed1";
 		this.fixed1.HasWindow = false;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.label2 = new global::Gtk.Label();
@@ -336,6 +339,7 @@ public partial class MainWindow
 		w5.Y = 64;
 		// Container child fixed1.Gtk.Fixed+FixedChild
 		this.btnStartServer = new global::Gtk.Button();
+		this.btnStartServer.Sensitive = false;
 		this.btnStartServer.CanFocus = true;
 		this.btnStartServer.Name = "btnStartServer";
 		this.btnStartServer.UseUnderline = true;
@@ -1669,6 +1673,16 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w133 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbConsole]));
 		w133.X = 824;
 		w133.Y = 400;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.btnPopulate = new global::Gtk.Button();
+		this.btnPopulate.CanFocus = true;
+		this.btnPopulate.Name = "btnPopulate";
+		this.btnPopulate.UseUnderline = true;
+		this.btnPopulate.Label = global::Mono.Unix.Catalog.GetString("Populate");
+		this.fixed1.Add(this.btnPopulate);
+		global::Gtk.Fixed.FixedChild w134 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnPopulate]));
+		w134.X = 375;
+		w134.Y = 101;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
@@ -1703,5 +1717,6 @@ public partial class MainWindow
 		this.chkCacheIcompress.Toggled += new global::System.EventHandler(this.OnChkCacheIcompress);
 		this.chkMemWidth.Toggled += new global::System.EventHandler(this.OnMemWidth);
 		this.chkMemLat.Toggled += new global::System.EventHandler(this.OnMemLat);
+		this.btnPopulate.Clicked += new global::System.EventHandler(this.OnBtnPopulate);
 	}
 }

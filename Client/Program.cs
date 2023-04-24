@@ -9,6 +9,7 @@ namespace Client
 {
     class MainClass
     {
+        private static string responseData;
         private static readonly string PATH_TO_SCRIPT = "../Debug/simplesim-3.0/script.sh";
         public static void Main(string[] args)
         {
@@ -18,8 +19,9 @@ namespace Client
         }
         public static void GenerateScript()
         {
-            string commnandBuffer = "./sim-outorder -redir:sim results/simulation.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss < benchmarks/applu.in";
-
+            //string commnandBuffer = "./sim-outorder -redir:sim results/simulation.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss < benchmarks/applu.in";
+            string commnandBuffer = responseData;
+            responseData = string.Empty;
             string cosmin = "/home/timarc/Desktop/MareProiect/SimOutorder/Client/bin/Debug/simplesim-3.0/";
             string alex_desktop = "/home/bellum/Projects/SimOutorder/Client/bin/Debug/simplesim-3.0/";
 
@@ -59,7 +61,7 @@ namespace Client
             // Receive response from server
             byte[] responseBytes = new byte[1024];
             int bytesRead = clientSocket.Receive(responseBytes);
-            string responseData = Encoding.UTF8.GetString(responseBytes, 0, bytesRead);
+            responseData = Encoding.UTF8.GetString(responseBytes, 0, bytesRead);
             Console.WriteLine("Received response from server: " + responseData);
 
             // Close the client socket
