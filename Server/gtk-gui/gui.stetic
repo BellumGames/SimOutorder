@@ -1827,6 +1827,16 @@ true</property>
             <property name="Y">64</property>
           </packing>
         </child>
+        <child>
+          <widget class="Gtk.Label" id="lbConsole">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">Console</property>
+          </widget>
+          <packing>
+            <property name="X">816</property>
+            <property name="Y">398</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>
@@ -1840,13 +1850,83 @@ true</property>
         <property name="MemberName" />
         <property name="HasWindow">False</property>
         <child>
-          <widget class="Gtk.Label" id="lbResult">
+          <widget class="Gtk.Label" id="label1">
             <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">LABEL</property>
+            <property name="LabelProp" translatable="yes">label1</property>
           </widget>
           <packing>
-            <property name="X">29</property>
-            <property name="Y">22</property>
+            <property name="X">16</property>
+            <property name="Y">17</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label2</property>
+          </widget>
+          <packing>
+            <property name="X">16</property>
+            <property name="Y">42</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label3</property>
+          </widget>
+          <packing>
+            <property name="X">15</property>
+            <property name="Y">64</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label4">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label4</property>
+          </widget>
+          <packing>
+            <property name="X">16</property>
+            <property name="Y">86</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label6">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label6</property>
+          </widget>
+          <packing>
+            <property name="X">16</property>
+            <property name="Y">126</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label8">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label8</property>
+          </widget>
+          <packing>
+            <property name="X">16</property>
+            <property name="Y">166</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label7">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label7</property>
+          </widget>
+          <packing>
+            <property name="X">17</property>
+            <property name="Y">146</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label5">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">label5</property>
+          </widget>
+          <packing>
+            <property name="X">17</property>
+            <property name="Y">105</property>
           </packing>
         </child>
       </widget>

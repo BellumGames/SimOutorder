@@ -271,6 +271,8 @@ public partial class MainWindow
 
 	private global::Gtk.Button btnSeeResults;
 
+	private global::Gtk.Label lbConsole;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -1673,6 +1675,14 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w133 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.btnSeeResults]));
 		w133.X = 312;
 		w133.Y = 64;
+		// Container child fixed1.Gtk.Fixed+FixedChild
+		this.lbConsole = new global::Gtk.Label();
+		this.lbConsole.Name = "lbConsole";
+		this.lbConsole.LabelProp = global::Mono.Unix.Catalog.GetString("Console");
+		this.fixed1.Add(this.lbConsole);
+		global::Gtk.Fixed.FixedChild w134 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbConsole]));
+		w134.X = 816;
+		w134.Y = 398;
 		this.Add(this.fixed1);
 		if ((this.Child != null))
 		{
