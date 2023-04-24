@@ -16,6 +16,7 @@ public partial class MainWindow : Gtk.Window
     public static string PATH_CLIENT = @"..\..\..\Client\bin\Debug\Client.exe";
     public static int ServerStatus = 0;
     public static Thread th = null;
+    public static int i = 0;
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
@@ -27,8 +28,8 @@ public partial class MainWindow : Gtk.Window
     protected void OnDeleteEvent(object sender, DeleteEventArgs a)
     {
         Application.Quit();
-        th.Abort();
         a.RetVal = true;
+        th.Abort();
     }
 
     protected void Init()
@@ -69,10 +70,21 @@ public partial class MainWindow : Gtk.Window
     {
     }
 
+    protected void OnBtnPopulate(object sender, EventArgs e)
+    {
+        PopulateCommand();
+        PreparingCommand();
+        btnStartServer.Sensitive = true;
+    }
+
     protected void OnBtnStartServer(object sender, EventArgs e)
     {
         btnSimulate.Sensitive = true;
         ServerThread();
+    }
+
+    protected void OnBtnSimulate(object sender, EventArgs e)
+    {
     }
 
     protected void ServerThread() 
@@ -117,11 +129,11 @@ public partial class MainWindow : Gtk.Window
                 lbConsole.Text += "Received data from client: " + receivedData + "\n";
 
                 // Send response back to client
-                string response = "Hello from server!";
+                //./sim-outorder -max:inst 10000 -fastfwd 0 -bpred:bimod 512 -cache:dl1 dl1:128:32:4:l -cache:dl1lat 1 -cache:dl2 dl2:1024:64:4:l -cache:dl2lat 6 -cache:il1 il1:512:32:1:l -cache:il1lat 1 -cache:il2 il2:1024:64:4:l -cache:il2lat 6 -tlb:dtlb dtlb:32:4096:4:l -tlb:itlb itlb:16:4096:4:l-tlb:lat 30 -redir:sim results/applu_simout.res benchmarks/applu.ss < benchmarks/applu.in && exit
+                string response = commands[i];
                 byte[] responseBytes = Encoding.UTF8.GetBytes(response);
                 clientSocket.Send(responseBytes);
             }
-
             // Close the client socket
             clientSocket.Close();
         }
@@ -139,12 +151,6 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
-    protected void OnBtnSimulate(object sender, EventArgs e)
-    {
-        PopulateCommand();
-        PreparingCommand();
-    }
-
     protected void PreparingCommand() 
     {
         foreach(var item in benchmarks) 
@@ -152,6 +158,7 @@ public partial class MainWindow : Gtk.Window
             string temp = command + $"-redir:sim results/{item.Key}_simout.res {item.Value} && exit";
             commands.Add(temp);
         }
+        lbConsole.Text = commands[0];
     }
 
     protected void PopulateCommand()
@@ -280,7 +287,7 @@ public partial class MainWindow : Gtk.Window
             }
             //if (chkIL2.Active) { }
         }
-        else if (chkUnifiedIL2.Active) 
+        else if (chkUnifiedIL2.Active)
         {
             dl2Name = "ul2";
             if (chkDL1.Active)
@@ -298,13 +305,13 @@ public partial class MainWindow : Gtk.Window
                 command += $"-cache:il1 {il1Name}:{spinNumSetsIL1.Value}:{spinBlockSizeIL1.Value}:{spinAssociativityIL1.Value}:{replIL1} ";
                 command += $"-cache:il1lat {spinLatIL1.Value} ";
             }
-            if (chkIL2.Active) 
-            { 
+            if (chkIL2.Active)
+            {
                 command += $"-cache:il2 dl2 ";
                 command += $"-cache:il2lat {spinLatIL2.Value} ";
             }
         }
-        else 
+        else
         {
             if (chkDL1.Active)
             {
@@ -328,14 +335,14 @@ public partial class MainWindow : Gtk.Window
             }
         }
 
-        if (chkDTLB.Active) 
+        if (chkDTLB.Active)
         {
             command += $"-tlb:dtlb {dtlbName}:{spinNumSetsDTLB.Value}:{spinBlockSizeDTLB.Value}:{spinAssociativityDTLB.Value}:{replDTLB} ";
         }
 
-        if (chkITLB.Active) 
+        if (chkITLB.Active)
         {
-            command += $"-tlb:itlb {itlbName}:{spinNumSetsITLB.Value}:{spinBlockSizeITLB.Value}:{spinAssociativityITLB.Value}:{replITLB}";
+            command += $"-tlb:itlb {itlbName}:{spinNumSetsITLB.Value}:{spinBlockSizeITLB.Value}:{spinAssociativityITLB.Value}:{replITLB} ";
         }
 
         if (chkDTLB.Active || chkITLB.Active)
@@ -357,6 +364,13 @@ public partial class MainWindow : Gtk.Window
     protected void Reset()
     {
         command = "./sim-outorder ";
+
+        if(th.IsAlive == true) 
+        {
+            th.Abort();
+        }
+        btnStartServer.Sensitive = false;
+        btnSimulate.Sensitive = false;
 
         spinInstrNum.Value = 10000;
         spinFastForwardCount.Value = 0;
