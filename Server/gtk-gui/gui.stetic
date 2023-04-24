@@ -1799,16 +1799,6 @@ true</property>
           <placeholder />
         </child>
         <child>
-          <widget class="Gtk.Label" id="lbConsole">
-            <property name="MemberName" />
-            <property name="LabelProp" translatable="yes">Console Label</property>
-          </widget>
-          <packing>
-            <property name="X">824</property>
-            <property name="Y">400</property>
-          </packing>
-        </child>
-        <child>
           <widget class="Gtk.Button" id="btnPopulate">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
@@ -1842,7 +1832,7 @@ true</property>
   </widget>
   <widget class="Gtk.Window" id="InterfataSimOutorder.SecondaryWindow" design-size="400 300">
     <property name="MemberName" />
-    <property name="Title" translatable="yes">Results for Client number #</property>
+    <property name="Title" translatable="yes">Client</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">6</property>
     <child>
