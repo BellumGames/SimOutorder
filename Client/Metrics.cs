@@ -15,29 +15,28 @@ namespace Client
         public double rataHitIL2 { get; set; }
         public double rataHitDTLB { get; set; }
         public double rataHitITLB { get; set; }
-        public double rataInlocuireDL1 { get; set; }
-        public double rataInlocuireDL2 { get; set; }
-        public double rataInlocuireIL1 { get; set; }
-        public double rataInlocuireIL2 { get; set; }
-        public double rataInlocuireDTLB { get; set; }
-        public double rataInlocuireITLB { get; set; }
 
-         
+        public string benchmarkName { get; set; }
+        public double sim_IPC { get; set; }
+
 
 
         public Metrics parseString(string simulation)
         {
             Metrics data = new Metrics();
             var values = new[] {
-                "il1.accesses", "il1.hits", "il1.replacements",
-                "dl1.accesses", "dl1.hits", "dl1.replacements",
-                "il2.accesses", "il2.hits", "il2.replacements",
-                "dl2.accesses", "dl2.hits", "dl2.replacements",
-                "itlb.accesses", "itlb.hits ", "itlb.replacements",
-                "dtlb.accesses", "dtlb.hits", "dtlb.replacements" };
+                "il1.accesses", "il1.hits", 
+                "dl1.accesses", "dl1.hits", 
+                "il2.accesses", "il2.hits", 
+                "dl2.accesses", "dl2.hits",
+                "itlb.accesses", "itlb.hits ",
+                "dtlb.accesses", "dtlb.hits",
+                "sim_IPC",
+                "applu","apsi","hydro","go","su2cor","swin","tomcatv","cc1" };
             double il1Acc = 0, il2Acc = 0, dl1Acc = 0, dl2Acc = 0, itlbAcc = 0, dtlbAcc = 0;
-            double il1Hit = 0, il2Hit = 0, dl1Hit = 0, dl2Hit = 0, itlbHit = 0, dtlbHit = 0;
-            double il1Repl = 0, il2Repl = 0, dl1Repl = 0, dl2Repl = 0, itlbRepl = 0, dtlbRepl = 0;
+            double il1Hit = 0, il2Hit = 0, dl1Hit = 0, dl2Hit = 0, itlbHit = 0, dtlbHit = 0,IPC = 0;
+            string benchmark = null;
+
 
             Int32 BufferReader = 131072;
             using (StreamReader st = new StreamReader(simulation, Encoding.UTF8,true,BufferReader))
@@ -87,44 +86,48 @@ namespace Client
                             case "dtlb.hits":
                                 dtlbHit = double.Parse(arguments[1]);
                                 break;
+                            case "sim_IPC":
+                                IPC = double.Parse(arguments[1]);
+                                break;
 
-                            case "il1.replacements":
-                                il1Repl = double.Parse(arguments[1]);
+
+                            case "applu":
+                                benchmark = arguments[1];
                                 break;
-                            case "il2.replacements":
-                                il2Repl = double.Parse(arguments[1]);
+                            case "apsi":
+                                benchmark = arguments[1];
                                 break;
-                            case "dl1.replacements":
-                                dl1Repl = double.Parse(arguments[1]);
+                            case "go":
+                                benchmark = arguments[1];
                                 break;
-                            case "dl2.replacements":
-                                dl2Repl = double.Parse(arguments[1]);
+                            case "hydro":
+                                benchmark = arguments[1];
                                 break;
-                            case "itlb.replacements":
-                                itlbRepl = double.Parse(arguments[1]);
+                            case "su2cor":
+                                benchmark = arguments[1];
                                 break;
-                            case "dtlb.replacements":
-                                dtlbRepl = double.Parse(arguments[1]);
+                            case "tomcatv":
+                                benchmark = arguments[1];
                                 break;
+                            case "cc1":
+                                benchmark = arguments[1];
+                                break;
+
                         }
                     }
 
                 }
             }
-            data.rataInlocuireIL1 = Math.Round(il1Repl / il1Acc * 100,2);
-            data.rataInlocuireIL2 = Math.Round(il2Repl / il2Acc * 100, 2);
-            data.rataInlocuireDL1 = Math.Round(dl1Repl / dl1Acc * 100, 2);
-            data.rataInlocuireDL2 = Math.Round(dl2Repl / dl2Acc * 100, 2);
-            data.rataInlocuireITLB = Math.Round(itlbRepl / itlbAcc * 100, 2);
-            data.rataInlocuireDTLB = Math.Round(dtlbRepl / dtlbAcc * 100, 2);
-
-
             data.rataHitDL1 = Math.Round(dl1Hit / dl1Acc * 100, 2);
             data.rataHitDL2 = Math.Round(dl2Hit / dl2Acc * 100, 2);
             data.rataHitIL1 = Math.Round(il1Hit / il1Acc * 100, 2);
             data.rataHitIL2 = Math.Round(il2Hit / il2Acc * 100, 2);
             data.rataHitDTLB = Math.Round(dtlbHit / dtlbAcc * 100, 2);
             data.rataHitITLB = Math.Round(itlbHit / itlbAcc * 100, 2);
+
+            data.sim_IPC = Math.Round(IPC * 100, 2);
+            data.benchmarkName = benchmark;
+            Console.WriteLine(data.benchmarkName);
             return data;
         }
     }

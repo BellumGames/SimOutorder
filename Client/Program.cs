@@ -26,7 +26,7 @@ namespace Client
             string cosmin = "/home/timarc/Desktop/MareProiect/SimOutorder/Client/bin/Debug/simplesim-3.0/";
             string alex_desktop = "/home/bellum/Projects/SimOutorder/Client/bin/Debug/simplesim-3.0/";
 
-            File.WriteAllText(PATH_TO_SCRIPT, $"#!/bin/bash\nchmod 777 script.sh\ncd {alex_desktop}\n" + commnandBuffer);
+            File.WriteAllText(PATH_TO_SCRIPT, $"#!/bin/bash\nchmod 777 script.sh\ncd {cosmin}\n" + commnandBuffer);
             File.Exists(PATH_TO_SCRIPT);
         }
 
@@ -61,7 +61,7 @@ namespace Client
 
             // Send data to server
             //string data = $"{benchmarkRulatNume} {IR} {RataHitCacheDate} {RataHitCacheInstructiuni}"
-            string data = $"{metrics.benchmarkName} {metrics.sim_IPC} {metrics.rataHitDL1} {metrics.rataHitDL2} {metrics.rataHitDTLB} {metrics.rataHitIL1} {metrics.rataHitIL2 } {metrics.rataHitITLB };
+            string data = $"{metrics.benchmarkName} {metrics.sim_IPC} {metrics.rataHitDL1} {metrics.rataHitDL2} {metrics.rataHitDTLB} {metrics.rataHitIL1} {metrics.rataHitIL2 } {metrics.rataHitITLB }";
 
             byte[] dataBytes = Encoding.UTF8.GetBytes(data);
             clientSocket.Send(dataBytes);
