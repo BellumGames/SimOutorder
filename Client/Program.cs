@@ -18,7 +18,7 @@ namespace Client
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to 'Defenetly not a virus team'.");
-            //Net();
+            Net();
             LaunchSim();
             Console.ReadLine();
         }
