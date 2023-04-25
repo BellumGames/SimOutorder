@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.ItemProperties.Client PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Program.cs" Line="41" Column="33" />
-      <File FileName="Metrics.cs" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="55" Column="66" />
+      <File FileName="Metrics.cs" Line="12" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,6 +16,11 @@
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>IPC</Value>
         </State>
       </Pad>
     </Pads>

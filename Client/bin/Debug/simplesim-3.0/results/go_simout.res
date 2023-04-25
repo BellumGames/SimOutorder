@@ -4,7 +4,7 @@ This version of SimpleScalar is licensed for academic non-commercial use only.
 
 sim: command line: ./sim-outorder -max:inst 10000 -fastfwd 0 -bpred:bimod 512 -cache:dl1 dl1:128:32:4:l -cache:dl1lat 1 -cache:dl2 dl2:1024:64:4:l -cache:dl2lat 6 -cache:il1 il1:512:32:1:l -cache:il1lat 1 -cache:il2 il2:1024:64:4:l -cache:il2lat 6 -tlb:dtlb dtlb:32:4096:4:l -tlb:itlb itlb:16:4096:4:l -tlb:lat 30 -redir:sim results/go_simout.res benchmarks/go.ss 
 
-sim: simulation started @ Mon Apr 24 20:10:07 2023, options follow:
+sim: simulation started @ Tue Apr 25 12:00:30 2023, options follow:
 
 sim-outorder: This simulator implements a very detailed out-of-order issue
 superscalar processor with a two-level memory system and speculative
@@ -140,31 +140,31 @@ sim_total_refs                 2356 # total number of loads and stores executed
 sim_total_loads                1381 # total number of loads executed
 sim_total_stores           975.0000 # total number of stores executed
 sim_total_branches             2371 # total number of branches executed
-sim_cycle                     14000 # total simulation time in cycles
-sim_IPC                      0.7144 # instructions per cycle
-sim_CPI                      1.3999 # cycles per instruction
-sim_exec_BW                  0.8872 # total instructions (mis-spec + committed) per cycle
+sim_cycle                     14031 # total simulation time in cycles
+sim_IPC                      0.7128 # instructions per cycle
+sim_CPI                      1.4030 # cycles per instruction
+sim_exec_BW                  0.8853 # total instructions (mis-spec + committed) per cycle
 sim_IPB                      5.3769 # instruction per branch
-IFQ_count                     24684 # cumulative IFQ occupancy
-IFQ_fcount                     5387 # cumulative IFQ full count
-ifq_occupancy                1.7631 # avg IFQ occupancy (insn's)
-ifq_rate                     0.8872 # avg IFQ dispatch rate (insn/cycle)
-ifq_latency                  1.9873 # avg IFQ occupant latency (cycle's)
-ifq_full                     0.3848 # fraction of time (cycle's) IFQ was full
-RUU_count                     96691 # cumulative RUU occupancy
-RUU_fcount                     4330 # cumulative RUU full count
-ruu_occupancy                6.9065 # avg RUU occupancy (insn's)
-ruu_rate                     0.8872 # avg RUU dispatch rate (insn/cycle)
-ruu_latency                  7.7845 # avg RUU occupant latency (cycle's)
-ruu_full                     0.3093 # fraction of time (cycle's) RUU was full
-LSQ_count                     15630 # cumulative LSQ occupancy
+IFQ_count                     24808 # cumulative IFQ occupancy
+IFQ_fcount                     5418 # cumulative IFQ full count
+ifq_occupancy                1.7681 # avg IFQ occupancy (insn's)
+ifq_rate                     0.8853 # avg IFQ dispatch rate (insn/cycle)
+ifq_latency                  1.9973 # avg IFQ occupant latency (cycle's)
+ifq_full                     0.3861 # fraction of time (cycle's) IFQ was full
+RUU_count                     97185 # cumulative RUU occupancy
+RUU_fcount                     4362 # cumulative RUU full count
+ruu_occupancy                6.9264 # avg RUU occupancy (insn's)
+ruu_rate                     0.8853 # avg RUU dispatch rate (insn/cycle)
+ruu_latency                  7.8242 # avg RUU occupant latency (cycle's)
+ruu_full                     0.3109 # fraction of time (cycle's) RUU was full
+LSQ_count                     15692 # cumulative LSQ occupancy
 LSQ_fcount                       49 # cumulative LSQ full count
-lsq_occupancy                1.1164 # avg LSQ occupancy (insn's)
-lsq_rate                     0.8872 # avg LSQ dispatch rate (insn/cycle)
-lsq_latency                  1.2584 # avg LSQ occupant latency (cycle's)
+lsq_occupancy                1.1184 # avg LSQ occupancy (insn's)
+lsq_rate                     0.8853 # avg LSQ dispatch rate (insn/cycle)
+lsq_latency                  1.2633 # avg LSQ occupant latency (cycle's)
 lsq_full                     0.0035 # fraction of time (cycle's) LSQ was full
-sim_slip                     113940 # total number of slip cycles
-avg_sim_slip                11.3929 # the average slip between issue and retirement
+sim_slip                     114496 # total number of slip cycles
+avg_sim_slip                11.4485 # the average slip between issue and retirement
 bpred_bimod.lookups            2584 # total number of bpred lookups
 bpred_bimod.updates            1859 # total number of updates
 bpred_bimod.addr_hits          1418 # total number of address-predicted hits
@@ -256,6 +256,6 @@ ld_target_big_endian              0 # target executable endian-ness, non-zero if
 mem.page_count                  189 # total number of pages allocated
 mem.page_mem                   756k # total size of memory pages allocated
 mem.ptab_misses                 191 # total first level page table misses
-mem.ptab_accesses           3985710 # total page table accesses
+mem.ptab_accesses           3984594 # total page table accesses
 mem.ptab_miss_rate           0.0000 # first level page table miss rate
 
