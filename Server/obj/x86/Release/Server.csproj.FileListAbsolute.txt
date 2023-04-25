@@ -1,0 +1,4 @@
+/home/timarc/Desktop/MareProiect/SimOutorder/Server/bin/Release/InterfataSimOutorder.exe
+/home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/Server.csproj.AssemblyReference.cache
+/home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/Server.csproj.CoreCompileInputs.cache
+/home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/InterfataSimOutorder.exe

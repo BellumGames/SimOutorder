@@ -32,10 +32,9 @@ namespace Client
                 "itlb.accesses", "itlb.hits ",
                 "dtlb.accesses", "dtlb.hits",
                 "sim_IPC",
-                "applu","apsi","hydro","go","su2cor","swin","tomcatv","cc1" };
+                };
             double il1Acc = 0, il2Acc = 0, dl1Acc = 0, dl2Acc = 0, itlbAcc = 0, dtlbAcc = 0;
             double il1Hit = 0, il2Hit = 0, dl1Hit = 0, dl2Hit = 0, itlbHit = 0, dtlbHit = 0,IPC = 0;
-            string benchmark = null;
 
 
             Int32 BufferReader = 131072;
@@ -86,32 +85,12 @@ namespace Client
                             case "dtlb.hits":
                                 dtlbHit = double.Parse(arguments[1]);
                                 break;
+
+
                             case "sim_IPC":
                                 IPC = double.Parse(arguments[1]);
                                 break;
 
-
-                            case "applu":
-                                benchmark = arguments[1];
-                                break;
-                            case "apsi":
-                                benchmark = arguments[1];
-                                break;
-                            case "go":
-                                benchmark = arguments[1];
-                                break;
-                            case "hydro":
-                                benchmark = arguments[1];
-                                break;
-                            case "su2cor":
-                                benchmark = arguments[1];
-                                break;
-                            case "tomcatv":
-                                benchmark = arguments[1];
-                                break;
-                            case "cc1":
-                                benchmark = arguments[1];
-                                break;
 
                         }
                     }
@@ -126,8 +105,17 @@ namespace Client
             data.rataHitITLB = Math.Round(itlbHit / itlbAcc * 100, 2);
 
             data.sim_IPC = Math.Round(IPC * 100, 2);
-            data.benchmarkName = benchmark;
-            Console.WriteLine(data.benchmarkName);
+
+
+         
+            Console.WriteLine("IPC = " + data.sim_IPC);
+            Console.WriteLine("Rata hit DL1 = " + data.rataHitDL1);
+            Console.WriteLine("Rata hit DL2 = " + data.rataHitDL2);
+            Console.WriteLine("Rata hit IL1 = " + data.rataHitIL1);
+            Console.WriteLine("Rata hit IL2 = " + data.rataHitIL2);
+            Console.WriteLine("Rata hit DTLB = " + data.rataHitDTLB);
+            Console.WriteLine("Rata hit ITLB = " + data.rataHitITLB);
+
             return data;
         }
     }
