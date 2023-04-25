@@ -106,7 +106,16 @@ namespace Client
 
             data.sim_IPC = Math.Round(IPC * 100, 2);
 
-            Console.WriteLine(data.sim_IPC);
+
+         
+            Console.WriteLine("IPC = " + data.sim_IPC);
+            Console.WriteLine("Rata hit DL1 = " + data.rataHitDL1);
+            Console.WriteLine("Rata hit DL2 = " + data.rataHitDL2);
+            Console.WriteLine("Rata hit IL1 = " + data.rataHitIL1);
+            Console.WriteLine("Rata hit IL2 = " + data.rataHitIL2);
+            Console.WriteLine("Rata hit DTLB = " + data.rataHitDTLB);
+            Console.WriteLine("Rata hit ITLB = " + data.rataHitITLB);
+
             return data;
         }
     }

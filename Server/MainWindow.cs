@@ -80,7 +80,7 @@ public partial class MainWindow : Gtk.Window
     {
         for(int j = 0; j < responses.Count; j++) 
         {
-            new SecondaryWindow($"{j} {responses[j]}").Show();
+            new SecondaryWindow(responses[j]).Show();
         }
     }
 
