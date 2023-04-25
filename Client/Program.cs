@@ -26,7 +26,7 @@ namespace Client
         {
            
             string commnandBuffer = responseData;
-            responseData = string.Empty;
+            //responseData = string.Empty;
             string cosmin = "/home/timarc/Desktop/MareProiect/SimOutorder/Client/bin/Debug/simplesim-3.0/";
             string alex_desktop = "/home/bellum/Projects/SimOutorder/Client/bin/Debug/simplesim-3.0/";
 
@@ -36,7 +36,7 @@ namespace Client
 
         public static void checkForBenchmark()
         {
-            string[] benchmark = { "applu_simout.res", "apsi_simout.res", "hydro_simout.res", "go_simout.res", "su2cor_simout.res", "swin_simout.res", "tomcatv_simout.res", "cc1.res" };
+            string[] benchmark = { "applu_simout.res", "apsi_simout.res", "hydro2d_simout.res", "go_simout.res", "su2cor_simout.res", "swin_simout.res", "tomcatv_simout.res", "cc1.res" };
             string command = responseData;
 
             for (int i = 0; i < benchmark.Length; i++)

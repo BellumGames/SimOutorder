@@ -85,6 +85,8 @@ namespace Client
                             case "dtlb.hits":
                                 dtlbHit = double.Parse(arguments[1]);
                                 break;
+
+
                             case "sim_IPC":
                                 IPC = double.Parse(arguments[1]);
                                 break;
