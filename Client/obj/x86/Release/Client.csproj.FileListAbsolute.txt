@@ -6,3 +6,11 @@
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Release/Client.csproj.CoreCompileInputs.cache
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Release/Client.csproj.CopyComplete
 /home/timarc/Desktop/MareProiect/SimOutorder/Client/obj/x86/Release/Client.exe
+/home/bellum/Projects/SimOutorder/Client/bin/Release/Client.exe
+/home/bellum/Projects/SimOutorder/Client/bin/Release/Newtonsoft.Json.dll
+/home/bellum/Projects/SimOutorder/Client/bin/Release/System.Diagnostics.Process.dll
+/home/bellum/Projects/SimOutorder/Client/bin/Release/Newtonsoft.Json.xml
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Release/Client.csproj.AssemblyReference.cache
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Release/Client.csproj.CoreCompileInputs.cache
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Release/Client.csproj.CopyComplete
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Release/Client.exe

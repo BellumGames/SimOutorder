@@ -1,0 +1,9 @@
+/home/bellum/Projects/SimOutorder/Client/bin/Debug/Client.exe
+/home/bellum/Projects/SimOutorder/Client/bin/Debug/Client.pdb
+/home/bellum/Projects/SimOutorder/Client/bin/Debug/Newtonsoft.Json.dll
+/home/bellum/Projects/SimOutorder/Client/bin/Debug/System.Diagnostics.Process.dll
+/home/bellum/Projects/SimOutorder/Client/bin/Debug/Newtonsoft.Json.xml
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Debug/Client.csproj.CoreCompileInputs.cache
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Debug/Client.csproj.CopyComplete
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Debug/Client.exe
+/home/bellum/Projects/SimOutorder/Client/obj/x86/Debug/Client.pdb

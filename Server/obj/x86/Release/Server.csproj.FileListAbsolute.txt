@@ -2,3 +2,7 @@
 /home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/Server.csproj.AssemblyReference.cache
 /home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/Server.csproj.CoreCompileInputs.cache
 /home/timarc/Desktop/MareProiect/SimOutorder/Server/obj/x86/Release/InterfataSimOutorder.exe
+/home/bellum/Projects/SimOutorder/Server/bin/Release/InterfataSimOutorder.exe
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Release/Server.csproj.AssemblyReference.cache
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Release/Server.csproj.CoreCompileInputs.cache
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Release/InterfataSimOutorder.exe

@@ -4,3 +4,8 @@
 /home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/Server.csproj.CoreCompileInputs.cache
 /home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/InterfataSimOutorder.exe
 /home/bellum/Projects/InterfataSimOutorder/InterfataSimOutorder/obj/x86/Debug/InterfataSimOutorder.pdb
+/home/bellum/Projects/SimOutorder/Server/bin/Debug/InterfataSimOutorder.exe
+/home/bellum/Projects/SimOutorder/Server/bin/Debug/InterfataSimOutorder.pdb
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Debug/Server.csproj.CoreCompileInputs.cache
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Debug/InterfataSimOutorder.exe
+/home/bellum/Projects/SimOutorder/Server/obj/x86/Debug/InterfataSimOutorder.pdb
