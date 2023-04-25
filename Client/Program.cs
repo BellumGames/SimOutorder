@@ -13,7 +13,7 @@ namespace Client
         private static Metrics metrics = new Metrics();
         private static readonly string PATH_TO_SCRIPT = "../Debug/simplesim-3.0/script.sh";
         static string theBench = null;
-        static string commnandBuffer = "./sim-outorder -redir:sim results/applu_simout.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss < benchmarks/applu.in";
+        //static string commnandBuffer = "./sim-outorder -redir:sim results/applu_simout.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss < benchmarks/applu.in";
 
         public static void Main(string[] args)
         {
@@ -25,7 +25,7 @@ namespace Client
         public static void GenerateScript()
         {
            
-           // string commnandBuffer = responseData;
+            string commnandBuffer = responseData;
             responseData = string.Empty;
             string cosmin = "/home/timarc/Desktop/MareProiect/SimOutorder/Client/bin/Debug/simplesim-3.0/";
             string alex_desktop = "/home/bellum/Projects/SimOutorder/Client/bin/Debug/simplesim-3.0/";
@@ -37,7 +37,7 @@ namespace Client
         public static void checkForBenchmark()
         {
             string[] benchmark = { "applu_simout.res", "apsi_simout.res", "hydro_simout.res", "go_simout.res", "su2cor_simout.res", "swin_simout.res", "tomcatv_simout.res", "cc1.res" };
-            string command = commnandBuffer;
+            string command = responseData;
 
             for (int i = 0; i < benchmark.Length; i++)
             {
