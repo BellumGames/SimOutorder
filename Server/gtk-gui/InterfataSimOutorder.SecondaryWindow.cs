@@ -6,27 +6,98 @@ namespace InterfataSimOutorder
 	{
 		private global::Gtk.Fixed fixed1;
 
-		private global::Gtk.Label lbResult;
+		private global::Gtk.Label label1;
+
+		private global::Gtk.Label label2;
+
+		private global::Gtk.Label label3;
+
+		private global::Gtk.Label label4;
+
+		private global::Gtk.Label label6;
+
+		private global::Gtk.Label label8;
+
+		private global::Gtk.Label label7;
+
+		private global::Gtk.Label label5;
 
 		protected virtual void Build()
 		{
 			global::Stetic.Gui.Initialize(this);
 			// Widget InterfataSimOutorder.SecondaryWindow
 			this.Name = "InterfataSimOutorder.SecondaryWindow";
-			this.Title = global::Mono.Unix.Catalog.GetString("Results for Client number #");
+			this.Title = global::Mono.Unix.Catalog.GetString("Client");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			this.BorderWidth = ((uint)(6));
 			// Container child InterfataSimOutorder.SecondaryWindow.Gtk.Container+ContainerChild
 			this.fixed1 = new global::Gtk.Fixed();
+			this.fixed1.Name = "fixed1";
 			this.fixed1.HasWindow = false;
 			// Container child fixed1.Gtk.Fixed+FixedChild
-			this.lbResult = new global::Gtk.Label();
-			this.lbResult.Name = "lbResult";
-			this.lbResult.LabelProp = global::Mono.Unix.Catalog.GetString("LABEL");
-			this.fixed1.Add(this.lbResult);
-			global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.lbResult]));
-			w1.X = 29;
-			w1.Y = 22;
+			this.label1 = new global::Gtk.Label();
+			this.label1.Name = "label1";
+			this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("label1");
+			this.fixed1.Add(this.label1);
+			global::Gtk.Fixed.FixedChild w1 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label1]));
+			w1.X = 16;
+			w1.Y = 17;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label2 = new global::Gtk.Label();
+			this.label2.Name = "label2";
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("label2");
+			this.fixed1.Add(this.label2);
+			global::Gtk.Fixed.FixedChild w2 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label2]));
+			w2.X = 16;
+			w2.Y = 42;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label3 = new global::Gtk.Label();
+			this.label3.Name = "label3";
+			this.label3.LabelProp = global::Mono.Unix.Catalog.GetString("label3");
+			this.fixed1.Add(this.label3);
+			global::Gtk.Fixed.FixedChild w3 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label3]));
+			w3.X = 15;
+			w3.Y = 64;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label4 = new global::Gtk.Label();
+			this.label4.Name = "label4";
+			this.label4.LabelProp = global::Mono.Unix.Catalog.GetString("label4");
+			this.fixed1.Add(this.label4);
+			global::Gtk.Fixed.FixedChild w4 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label4]));
+			w4.X = 16;
+			w4.Y = 86;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label6 = new global::Gtk.Label();
+			this.label6.Name = "label6";
+			this.label6.LabelProp = global::Mono.Unix.Catalog.GetString("label6");
+			this.fixed1.Add(this.label6);
+			global::Gtk.Fixed.FixedChild w5 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label6]));
+			w5.X = 16;
+			w5.Y = 126;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label8 = new global::Gtk.Label();
+			this.label8.Name = "label8";
+			this.label8.LabelProp = global::Mono.Unix.Catalog.GetString("label8");
+			this.fixed1.Add(this.label8);
+			global::Gtk.Fixed.FixedChild w6 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label8]));
+			w6.X = 16;
+			w6.Y = 166;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label7 = new global::Gtk.Label();
+			this.label7.Name = "label7";
+			this.label7.LabelProp = global::Mono.Unix.Catalog.GetString("label7");
+			this.fixed1.Add(this.label7);
+			global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label7]));
+			w7.X = 17;
+			w7.Y = 146;
+			// Container child fixed1.Gtk.Fixed+FixedChild
+			this.label5 = new global::Gtk.Label();
+			this.label5.Name = "label5";
+			this.label5.LabelProp = global::Mono.Unix.Catalog.GetString("label5");
+			this.fixed1.Add(this.label5);
+			global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed1[this.label5]));
+			w8.X = 17;
+			w8.Y = 105;
 			this.Add(this.fixed1);
 			if ((this.Child != null))
 			{

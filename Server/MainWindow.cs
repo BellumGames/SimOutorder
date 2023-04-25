@@ -13,7 +13,7 @@ public partial class MainWindow : Gtk.Window
     public static string command = "./sim-outorder ";
     public static Dictionary<string, string> benchmarks = new Dictionary<string, string>();
     public static List<string> commands = new List<string>();
-    public static string PATH_CLIENT = @"..\..\..\Client\bin\Debug\Client.exe";
+    //public static string PATH_CLIENT = @"..\..\..\Client\bin\Debug\Client.exe";
     public static int ServerStatus = 0;
     public static Thread th = null;
     public static int i = 0;
@@ -35,7 +35,6 @@ public partial class MainWindow : Gtk.Window
 
     protected void Init()
     {
-        lbConsole.Text += "\n";
         Fetch();
         Bpred();
         Decode();
@@ -69,7 +68,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnBtnHelp(object sender, EventArgs e)
     {
-        //Process.Start("help.pdf");
+        Process.Start("Help.pdf");
     }
 
     protected void OnBtnSeeResults(object sender, EventArgs e)
@@ -105,7 +104,6 @@ public partial class MainWindow : Gtk.Window
             th = new Thread(Net);
             th.Start();
             ServerStatus = 1;
-            StartClients();
         }
         else
         {
@@ -122,12 +120,10 @@ public partial class MainWindow : Gtk.Window
         IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
         serverSocket.Bind(endPoint);
         serverSocket.Listen(10);
-        lbConsole.Text += "Server started. Waiting for clients...\n";
 
         while (true)
         {
             System.Net.Sockets.Socket clientSocket = serverSocket.Accept();
-            lbConsole.Text += "Client connected: " + clientSocket.RemoteEndPoint + "\n";
 
             string response = commands[i];
             byte[] responseBytes = Encoding.UTF8.GetBytes(response);
@@ -139,7 +135,6 @@ public partial class MainWindow : Gtk.Window
             while ((bytesRead = clientSocket.Receive(buffer)) > 0)
             {
                 string receivedData = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                lbConsole.Text += "Received data from client: " + receivedData + "\n";
                 responses.Add(receivedData);
             }
             clientSocket.Close();
@@ -183,18 +178,6 @@ public partial class MainWindow : Gtk.Window
     }
     */
 
-    protected void StartClients() 
-    {
-        try 
-        {
-            Process.Start(PATH_CLIENT);
-        } 
-        catch (Exception ex)
-        {
-            lbConsole.Text += "Failed to launch Client.exe: " + ex.Message + "\n";
-        }
-    }
-
     protected void PreparingCommand() 
     {
         foreach(var item in benchmarks) 
@@ -202,7 +185,6 @@ public partial class MainWindow : Gtk.Window
             string temp = command + $"-redir:sim results/{item.Key}_simout.res {item.Value} && exit";
             commands.Add(temp);
         }
-        lbConsole.Text = commands[0];
     }
 
     protected void PopulateCommand()
@@ -291,7 +273,6 @@ public partial class MainWindow : Gtk.Window
         {
             command += $"-mem:width {spinMemWidth.Value} "; 
         }
-        lbConsole.Text = command;
     }
 
     protected void CacheConfig() 
