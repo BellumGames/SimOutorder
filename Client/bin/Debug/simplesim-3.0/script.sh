@@ -1,4 +1,4 @@
 #!/bin/bash
 chmod 777 script.sh
-cd /home/bellum/Projects/SimOutorder/Client/bin/Debug/simplesim-3.0/
-./sim-outorder -max:inst 10000 -fastfwd 0 -bpred:bimod 512 -cache:dl1 dl1:128:32:4:l -cache:dl1lat 1 -cache:dl2 dl2:1024:64:4:l -cache:dl2lat 6 -cache:il1 il1:512:32:1:l -cache:il1lat 1 -cache:il2 il2:1024:64:4:l -cache:il2lat 6 -tlb:dtlb dtlb:32:4096:4:l -tlb:itlb itlb:16:4096:4:l -tlb:lat 30 -redir:sim results/applu_simout.res benchmarks/applu.ss < benchmarks/applu.in && exit
+cd /home/timarc/Desktop/MareProiect/SimOutorder/Client/bin/Debug/simplesim-3.0/
+./sim-outorder -redir:sim results/applu_simout.res -redir:prog results/applu_progout.res -max:inst 10000 -fastfwd 0 -fetch:ifqsize 4 -bpred:bimod 2048 -decode:width 4 -issue:width 4 -commit:width 4 -ruu:size 16 -lsq:size 8 -cache:dl1 dl1:128:32:4:l -mem:lat 18 2 -tlb:itlb itlb:16:4096:4:l -res:ialu 4 benchmarks/applu.ss < benchmarks/applu.in
